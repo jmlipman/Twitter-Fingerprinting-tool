@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+
+span#numero {
+font-weight:bold;
+}
+
+a#hashtag {
+text-decoration:none;
+color:green;
+}
+
+a#geo {
+color:orange;
+font-size:14px;
+}
+
+span#item_bio {
+font-weight:bold;
+}
+
+img#avatar {
+width:50px;
+heigth:50px;
+}
+
+span#fecha {
+color:grey;
+font-size:12px;
+display:none;
+}
+
+span#fecha-favs {
+color:grey;
+font-size:12px;
+display:none;
+}
+
+a#followers {
+color:orange;
+}
+
+a#followings {
+color:orange;
+}
+
+#indice {
+font-size:23px;
+text-decoration:none;
+}
+
+div#contenedor {
+	background-color:#C0DEED;
+}
+
+div#imagen-principal {
+	background-image:url(../images/bg.png);
+	background-repeat:no-repeat;
+	text-align:center;
+}
+
+div#imagen-principal span#titulo {
+	font-size:30px;
+}
+
+table#opciones {
+	cursor:default;
+	-moz-user-select: none; 
+	-o-user-select: none; 
+	-webkit-user-select: none; 
+	-ie-user-select: none; 
+	user-select: none;
+}
+
+img.opciones {
+	width:30px;
+	display:none;
+}
+
+span.opciones:hover {
+	text-decoration:underline;
+}
+
+div#contenedor div#opcion0 {
+	background-color:#C0DEED;
+	display:block;
+
+}
+
+div#contenedor div.opciones {
+	margin:10px;
+}
+
+img#loading {
+	width:150px;
+	height:150px;
+}
+
+span#loading { font-size:40px; }
+
+img#flechas {
+	width:20px;
+	heigh:20px;
+	display:none;
+}
+
+#tweet_individual { 
+font-family:Verdana, Geneva, sans-serif;
+font-size:13px;
+}
+
+td#flecha {
+	text-align:center;
+	height:90px;
+}
+
+a:link { color:#24698A; }
+
+div.dates {
+	color:#24698A;
+	width:130px;
+	text-align:center;
+	border:3px solid #478AAA;
+	position:fixed;
+	margin-left:75%;
+	margin-top:-110px;
+	background-color:#C0DEED;
+	font-weight:bold;
+	cursor:pointer;
+}

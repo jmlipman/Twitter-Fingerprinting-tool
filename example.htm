@@ -1,0 +1,706 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="stalker.php_files/jquery.js"></script>
+<style>
+span#numero {
+font-weight:bold;
+}
+
+a#hashtag {
+text-decoration:none;
+color:green;
+}
+
+a#geo {
+color:orange;
+font-size:14px;
+}
+
+span#item_bio {
+font-weight:bold;
+}
+
+img#avatar {
+width:50px;
+heigth:50px;
+}
+
+span#fecha {
+color:grey;
+font-size:12px;
+display:none;
+}
+
+span#fecha-favs {
+color:grey;
+font-size:12px;
+display:none;
+}
+
+a#followers {
+color:orange;
+}
+
+a#followings {
+color:orange;
+}
+
+#indice {
+font-size:23px;
+text-decoration:none;
+}
+
+div#contenedor {
+	background-color:#C0DEED;
+}
+
+div#imagen-principal {
+	background-image:url(bg.png);
+	background-repeat:no-repeat;
+	height:190px;
+	text-align:center;
+}
+
+div#imagen-principal span#titulo {
+	font-size:30px;
+}
+
+table#opciones {
+	cursor:default;
+	-moz-user-select: none; 
+	-o-user-select: none; 
+	-webkit-user-select: none; 
+	-ie-user-select: none; 
+	user-select: none;
+}
+
+img.opciones {
+	width:30px;
+	display:none;
+}
+
+span.opciones:hover {
+	text-decoration:underline;
+}
+
+div#contenedor div#opcion0 {
+	background-color:#C0DEED;
+	display:block;
+
+}
+
+div#contenedor div.opciones {
+	margin:10px;
+}
+
+
+div#contenedor div#opcion1 { display:none; }
+	div#contenedor div#opcion2 { display:none; }
+	div#contenedor div#opcion3 { display:none; }
+	div#contenedor div#opcion4 { display:none; }
+	div#contenedor div#opcion5 { display:none; }
+	div#contenedor div#opcion6 { display:none; }
+	div#contenedor div#opcion7 { display:none; }
+	
+</style>
+
+<script language="javascript">
+ $(this.document).ready(function() {
+	 var i=1;
+	$("#botonfecha").click(function() {
+		if(i%2==0)
+		$("span#fecha").css("display","none");
+		else
+		$("span#fecha").css("display","inline");
+		i++;
+	});
+	
+	var j=1;
+	$("#botonfecha-favs").click(function() {
+		if(j%2==0)
+		$("span#fecha-favs").css("display","none");
+		else
+		$("span#fecha-favs").css("display","inline");
+		j++;
+	});
+	
+	var num_categorias=7;
+		
+	$(".opciones").click(function() {
+		var categoria_seleccionada = $(this).attr('id');
+		for(var a=0;a<=num_categorias;a++) {
+			$("table#opciones td#opcion"+a).css("border-top","");
+			$("table#opciones td#opcion"+a).css("border-bottom","");
+			$("table#opciones img#opcion"+a).css("display","none");
+			$("div#contenedor div#opcion"+a).css("display","none");
+			$("div#contenedor span#opcion"+a).css("font-weight","100");
+			$("div#contenedor span#opcion"+a).css("font-size","16");
+		}
+		$("div#contenedor div#"+categoria_seleccionada).css("display","block")
+		$("table#opciones td#"+categoria_seleccionada).css("border-top","1px solid black");
+		$("table#opciones td#"+categoria_seleccionada).css("border-bottom","1px solid black");
+		$("table#opciones img#"+categoria_seleccionada).css("display","inline");
+		$("div#contenedor span#"+categoria_seleccionada).css("font-weight","bold");
+		$("div#contenedor span#"+categoria_seleccionada).css("font-size","25");
+		
+	});
+
+ });
+</script>
+</head>
+
+
+<body>
+<div id="contenedor">
+	<div id="imagen-principal"><span id="titulo"><br><br>Twitter Fingerprinting Tool</span></div>
+    <div id="pos-imagen-principal">
+    	<table id="opciones" cellpadding="2" cellspacing="10" align="center">
+        	<tbody><tr>
+
+				<td class="opciones" id="opcion1"><img src="stalker.php_files/twitter.gif" class="opciones" id="opcion1"><span class="opciones" id="opcion1">Biography</span></td>
+				<td class="opciones" id="opcion2"><img src="stalker.php_files/twitter.gif" class="opciones" id="opcion2"><span class="opciones" id="opcion2">Tweets</span></td>
+				<td class="opciones" id="opcion3"><img src="stalker.php_files/twitter.gif" class="opciones" id="opcion3"><span class="opciones" id="opcion3">Followers</span></td>
+				<td class="opciones" id="opcion4"><img src="stalker.php_files/twitter.gif" class="opciones" id="opcion4"><span class="opciones" id="opcion4">Followings</span></td>
+				<td class="opciones" id="opcion5"><img src="stalker.php_files/twitter.gif" class="opciones" id="opcion5"><span class="opciones" id="opcion5">Favorites</span></td>
+				<td class="opciones" id="opcion6"><img src="stalker.php_files/twitter.gif" class="opciones" id="opcion6"><span class="opciones" id="opcion6">Lists (follow)</span></td>
+				<td class="opciones" id="opcion7"><img src="stalker.php_files/twitter.gif" class="opciones" id="opcion7"><span class="opciones" id="opcion7">Lists ('s followed by)</span></td>
+
+            </tr>
+        </tbody></table>
+    </div>
+    <div class="opciones" id="opcion0"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+
+
+		<div class="opciones" id="opcion1"><div id="biografia">
+	<img src="stalker.php_files/Untitled-1a_reasonably_small_normal.gif"><br><span id="item_bio">Id</span>: 103288301<br><span id="item_bio">Description</span>:
+ Lorquino maño. Otaku. Adoro la seguridad informática, computer 
+forensics y el metal. Twitter Stalker http://delanover.com/twitter<br><span id="item_bio">Web</span>: http://delanover.com<br><span id="item_bio">Name</span>: Juan Miguel Lipman<br><span id="item_bio">Followings</span>: 99<br><span id="item_bio">Followers</span>: 155<br><span id="item_bio">Tweets</span>: 13846<br><span id="item_bio">Creation date</span>: Sat Jan 09 14:55:42 +0000 2010<br><span id="item_bio">Favorites</span>: 19<br><span id="item_bio">Lists</span>: 7<br><span id="item_bio">Location</span>: España<br><span id="item_bio">Time zone</span>: Madrid<br></div></div>
+		<div class="opciones" id="opcion2"><br><input value="Show/Hide dates" id="botonfecha" type="button"><br><div id="tweets"><p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166993188513525761" target="_blank">1</a> </span>: [<span id="fecha">Tue Feb 07 21:14:13 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Sylmeria">@Sylmeria</a></span> hossssssstia si que se ha saturado rapidisisisimamente o___O Es un coñazo tener que esperar. Voy a subir un ejemplo y te aviso.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166992118441717761" target="_blank">2</a> </span>: [<span id="fecha">Tue Feb 07 21:09:58 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Javiover">@Javiover</a></span> gracias, estoy deseando meterle más cosas que tengo pensadas =)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166992034941509632" target="_blank">3</a> </span>: [<span id="fecha">Tue Feb 07 21:09:38 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Sylmeria">@Sylmeria</a></span> sasto! a primera vista puede parecer inutil o que lo he hecho para matar el rato, pero tiene su utilidad xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166991865466470400" target="_blank">4</a> (<a id="geo" href="https://twitter.com/places/aab98cb60835e83e" target="_blank">Burgos, España</a>)</span>: [<span id="fecha">Tue Feb 07 21:08:57 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Fitoschido">@Fitoschido</a></span> tengo pendiente ingeniármelas de alguna manera para que eso sea más obvio, lo tengo en el "to do list" xD gracias</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166989721384386560" target="_blank">5</a> </span>: [<span id="fecha">Tue Feb 07 21:00:26 +0000 2012</span>] Probadlo antes de que se agoten las peticiones!! http://t.co/5WYeHnZ3</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166988724637409280" target="_blank">6</a> </span>: [<span id="fecha">Tue Feb 07 20:56:29 +0000 2012</span>]
+ Más de 550 líneas de core. En breves lo subo y espero que lo probeis y 
+me digais cualquier opinión/mejora/lo que os de la gana.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166970283134164993" target="_blank">7</a> </span>: [<span id="fecha">Tue Feb 07 19:43:12 +0000 2012</span>] Anda, si tengo un IMC ideal! Cuando me lo hice por primera vez tenia un IMC de delgadez xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166969270130053120" target="_blank">8</a> </span>: [<span id="fecha">Tue Feb 07 19:39:10 +0000 2012</span>] Título bastante provocativo que nos hará reflexionar sobre qué consideramos por "hackear"</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166968903497560064" target="_blank">9</a> </span>: [<span id="fecha">Tue Feb 07 19:37:43 +0000 2012</span>] Próximamente espero crear una entrada tal que "Cómo hackear X" siendo X una red social concreta. Ingenieria social ftw.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166935046161301504" target="_blank">10</a> (<a id="geo" href="https://twitter.com/places/aab98cb60835e83e" target="_blank">Burgos, Spain</a>)</span>: [<span id="fecha">Tue Feb 07 17:23:11 +0000 2012</span>] Prueba con el geolocation activo.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166927469633478656" target="_blank">11</a> </span>: [<span id="fecha">Tue Feb 07 16:53:04 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> as known as a OFRS camera. Only For Rich Stalkers.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166926565882593280" target="_blank">12</a> </span>: [<span id="fecha">Tue Feb 07 16:49:29 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> si tienes 2 horas te lo recomiendo. Es un poco tueste por los desfiles, los discursos molan, desde luego.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166926339054632960" target="_blank">13</a> </span>: [<span id="fecha">Tue Feb 07 16:48:35 +0000 2012</span>] Mira que a mi el deporte me la trae bastante floja no, lo siguiente. Pero esto, hasta me cabrea: http://t.co/nJLnZZ3a</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166926118555881472" target="_blank">14</a> </span>: [<span id="fecha">Tue Feb 07 16:47:42 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> otra razón más para odiar a Francia.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166924421846679553" target="_blank">15</a> </span>: [<span id="fecha">Tue Feb 07 16:40:58 +0000 2012</span>] Acabo de terminar de ver "El triunfo de la voluntad". Muy curioso e interesante.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166909592683548674" target="_blank">16</a> </span>: [<span id="fecha">Tue Feb 07 15:42:02 +0000 2012</span>] RT <span id="mencion"><a target="_blank" href="https://twitter.com/Carloswaldo">@Carloswaldo</a></span>: La universidad... http://t.co/UTCcY5Mz</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166903639590453248" target="_blank">17</a> </span>: [<span id="fecha">Tue Feb 07 15:18:23 +0000 2012</span>]
+ A ver si esta tarde-noche subo la versión 1.2 del Twitter 
+Fingerprinting Tool. Me he quedado a medias por las malditas peticiones.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166903372551696386" target="_blank">18</a> </span>: [<span id="fecha">Tue Feb 07 15:17:19 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Rivsie">@Rivsie</a></span> aaaah, hoy es el de dia de la seguridad en internet, y el 30N es el dia de la seguridad informática. Madre mia cuanta fecha.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166903098919497729" target="_blank">19</a> </span>: [<span id="fecha">Tue Feb 07 15:16:14 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Rivsie">@Rivsie</a></span> waaa, ni yo lo sabia xD a partir de ahora me acordaré.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166875109842354176" target="_blank">20</a> </span>: [<span id="fecha">Tue Feb 07 13:25:02 +0000 2012</span>] Voy a parar un rato de diseñar y codear la GUI. Ya va tomando la forma que me gusta. http://t.co/REGmV1BV</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166858511257575424" target="_blank">21</a> </span>: [<span id="fecha">Tue Feb 07 12:19:03 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> lol, yo tengo una igual xD no será una sony?</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166858247377125377" target="_blank">22</a> </span>: [<span id="fecha">Tue Feb 07 12:18:02 +0000 2012</span>] Nueva GUI en "Twitter stalker", aka "Twitter fingerprinting tool" que estoy haciendo http://t.co/GL1nX23q</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166847535669968896" target="_blank">23</a> </span>: [<span id="fecha">Tue Feb 07 11:35:27 +0000 2012</span>] Las botas estas de Goretex son DIOS con la nieve, me vuelvo a probarlas =D</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166847463309852672" target="_blank">24</a> </span>: [<span id="fecha">Tue Feb 07 11:35:09 +0000 2012</span>] Que monada ver las patitas de las palomas estampadas en la nieve xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166845309144666112" target="_blank">25</a> </span>: [<span id="fecha">Tue Feb 07 11:26:36 +0000 2012</span>] Por cierto, tenia activado lo de los SMS de la UBU y no me ha llegado ni uno.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166832748554756097" target="_blank">26</a> </span>: [<span id="fecha">Tue Feb 07 10:36:41 +0000 2012</span>] Será interesante, igual lo escribo en Delanover.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166832533298872321" target="_blank">27</a> </span>: [<span id="fecha">Tue Feb 07 10:35:50 +0000 2012</span>] Dentro de unos dias, al fin podré saber qué guarda cierta red social sobre nosotros. Y no me refiero a Facebook.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166825254143004672" target="_blank">28</a> </span>: [<span id="fecha">Tue Feb 07 10:06:54 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> perfecto, muchas gracias, a ver si tengo suerte y la veo =P</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166825151634210817" target="_blank">29</a> </span>: [<span id="fecha">Tue Feb 07 10:06:30 +0000 2012</span>] El castillo tiene que estar precioso ahoramismo.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166824609897906176" target="_blank">30</a> </span>: [<span id="fecha">Tue Feb 07 10:04:21 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> habia mucha gente en el examen?</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166824496714612736" target="_blank">31</a> </span>: [<span id="fecha">Tue Feb 07 10:03:54 +0000 2012</span>] Al fin he acabado de documentar la parte del Intruder, 13 páginas. Vamos al Repeater.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166819476380192768" target="_blank">32</a> </span>: [<span id="fecha">Tue Feb 07 09:43:57 +0000 2012</span>] Está nevando una chispica, pero ha debido de nevar esta noche porque vuelve a estar blanco un poco.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166672938077134848" target="_blank">33</a> </span>: [<span id="fecha">Tue Feb 07 00:01:39 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> te quiero! mañana hablamos! &lt;3</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166671697943076864" target="_blank">34</a> </span>: [<span id="fecha">Mon Feb 06 23:56:44 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> que no, que tiene que ser por msn, ya verás porqué =P</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166671103463407616" target="_blank">35</a> </span>: [<span id="fecha">Mon Feb 06 23:54:22 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> recuerdame que te diga algo relacionado con la comida. Te des-co-jo-na-rás.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166670296970047488" target="_blank">36</a> </span>: [<span id="fecha">Mon Feb 06 23:51:10 +0000 2012</span>] Increible http://t.co/g48Vz5Ji El mejor es el de Suecia</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166669234989056000" target="_blank">37</a> </span>: [<span id="fecha">Mon Feb 06 23:46:56 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> pero eso seria falso, a mi una muñeca virtual, y en concreto la tuya, no me pone...........</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166668415891808256" target="_blank">38</a> </span>: [<span id="fecha">Mon Feb 06 23:43:41 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> a tu pupe.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166668378596048898" target="_blank">39</a> </span>: [<span id="fecha">Mon Feb 06 23:43:32 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> suerte!</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166668194386411522" target="_blank">40</a> </span>: [<span id="fecha">Mon Feb 06 23:42:48 +0000 2012</span>] Si que tengo que pensar en cambiar el interfaz gráfico de lo de twitter xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166667952156966912" target="_blank">41</a> </span>: [<span id="fecha">Mon Feb 06 23:41:50 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> la verdad es que si. No te lo voy a negar xDD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166666969892925440" target="_blank">42</a> </span>: [<span id="fecha">Mon Feb 06 23:37:56 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> has tenido suerte =)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166666299844476928" target="_blank">43</a> </span>: [<span id="fecha">Mon Feb 06 23:35:17 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> sip =D</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166665965017370624" target="_blank">44</a> </span>: [<span id="fecha">Mon Feb 06 23:33:57 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> ooooohHhHhHhHh &lt;3333 xD me gusta la ropa. El pelo no.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166665791335432192" target="_blank">45</a> </span>: [<span id="fecha">Mon Feb 06 23:33:15 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> que suerte, porque la parte de marketing y dar a conocer al público suele ser la más dificil/delicada =P</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166665165352353792" target="_blank">46</a> </span>: [<span id="fecha">Mon Feb 06 23:30:46 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> de estranjis ehh</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166664271869132800" target="_blank">47</a> </span>: [<span id="fecha">Mon Feb 06 23:27:13 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> y la haces tu solo? Yo que te veia más como en "seguridad" que en "desarrollo" =P...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166663958256820224" target="_blank">48</a> </span>: [<span id="fecha">Mon Feb 06 23:25:58 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> btw, en qué programas? java?</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166663231329402881" target="_blank">49</a> </span>: [<span id="fecha">Mon Feb 06 23:23:05 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> alaa alaa xD a ver si la sacas y le echamos un vistazo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166660446496096259" target="_blank">50</a> </span>: [<span id="fecha">Mon Feb 06 23:12:01 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> pues menos mal que me lo dices, pensaba pasarme sobre las 10-11, asi que me esperaré más tiempo. Gracias!</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166659792239214592" target="_blank">51</a> </span>: [<span id="fecha">Mon Feb 06 23:09:25 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> omg, sabes a qué hora acaba? es que tengo que ver a la zo- mujer esta.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166659673406185472" target="_blank">52</a> </span>: [<span id="fecha">Mon Feb 06 23:08:57 +0000 2012</span>]
+ He hablado 2 horas seguidas con la mujer de al lado en el bus. Hemos 
+hablado desde política, hasta becas, y el respiracionismo O.o</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166659290743054336" target="_blank">53</a> </span>: [<span id="fecha">Mon Feb 06 23:07:25 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> de que y a que hora? igual te veo, no se si me pasaré por la uni</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166658572976013312" target="_blank">54</a> </span>: [<span id="fecha">Mon Feb 06 23:04:34 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> suerteeee</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166657649297981441" target="_blank">55</a> </span>: [<span id="fecha">Mon Feb 06 23:00:54 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> nop, fui a pata, y volví a pata. Acabo de terminar de cenar.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166656944411656193" target="_blank">56</a> </span>: [<span id="fecha">Mon Feb 06 22:58:06 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Rivsie">@Rivsie</a></span> eso no es ni bueno ni malo, depende de lo que quieras.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166656286035947520" target="_blank">57</a> </span>: [<span id="fecha">Mon Feb 06 22:55:29 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> conectate si eso..</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166611188959031296" target="_blank">58</a> </span>: [<span id="fecha">Mon Feb 06 19:56:17 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> he visto el video y es muy llamativo e interesante, tengo ganas de probarla a ver =)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166610294863437824" target="_blank">59</a> </span>: [<span id="fecha">Mon Feb 06 19:52:44 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> nice, hago mi submit a ver si me aceptas =P así le echo un ojo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166609488449773568" target="_blank">60</a> </span>: [<span id="fecha">Mon Feb 06 19:49:32 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/xavi_life">@xavi_life</a></span> muchas gracias!! seguiré haciendo versiones y añadiendo características si la uni me lo permite =)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166604147926376450" target="_blank">61</a> </span>: [<span id="fecha">Mon Feb 06 19:28:18 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> =)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166603055398264832" target="_blank">62</a> </span>: [<span id="fecha">Mon Feb 06 19:23:58 +0000 2012</span>]
+ Pues si, me he perdido la nieve guay. Ver a mi madre y mis amigos no ha
+ tenido precio, sobre todo el viernes =D y la cena en el japonés.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166503663303540736" target="_blank">63</a> </span>: [<span id="fecha">Mon Feb 06 12:49:01 +0000 2012</span>] Vamos a poner Du Hast, Mein Land y Pussy para que me de suerte, y marchando a Burgos! (o intentándolo)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166496044593582080" target="_blank">64</a> </span>: [<span id="fecha">Mon Feb 06 12:18:45 +0000 2012</span>] En fin, veamos a ver si me puedo ir a Burgos hoy...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166467790990098433" target="_blank">65</a> </span>: [<span id="fecha">Mon Feb 06 10:26:28 +0000 2012</span>] Si hoy no me puedo ir a Burgos en autobús, intentaré hacerlo mediante tren.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166303081842229248" target="_blank">66</a> </span>: [<span id="fecha">Sun Feb 05 23:31:59 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/chiri_nyan">@chiri_nyan</a></span> seh, somos muchos. Venderá bastantes creo yo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166302316054577152" target="_blank">67</a> </span>: [<span id="fecha">Sun Feb 05 23:28:56 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> SABIA que lo dirias xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166300910715281408" target="_blank">68</a> </span>: [<span id="fecha">Sun Feb 05 23:23:21 +0000 2012</span>] Al FIN han licenciado Elfen Lied. Va a ser el primer y único manga que me compre.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166300507718172672" target="_blank">69</a> </span>: [<span id="fecha">Sun Feb 05 23:21:45 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/l_dids_l">@l_dids_l</a></span> omgggggggggggggggggggggggggg</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166296442263179264" target="_blank">70</a> </span>: [<span id="fecha">Sun Feb 05 23:05:36 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/rethorico">@rethorico</a></span> muchisima suerte! No para aprobar, sino para sacar nota =D</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166295031542591489" target="_blank">71</a> </span>: [<span id="fecha">Sun Feb 05 22:59:59 +0000 2012</span>] RT <span id="mencion"><a target="_blank" href="https://twitter.com/shyba">@shyba</a></span>:
+ Mis notas por el momento: 9, 9, 9 y 7. Parezco una empollona o algo... 
+PUES NO! me las regalan por pagar el maldito master. S ...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166294094765768704" target="_blank">72</a> </span>: [<span id="fecha">Sun Feb 05 22:56:16 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Krazzykule">@Krazzykule</a></span> es lo que más me gusta con diferencia. Ahora tienes un i5 con 4GB de Ram normaluco por 500€, por eso.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166292699249508353" target="_blank">73</a> </span>: [<span id="fecha">Sun Feb 05 22:50:43 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Krazzykule">@Krazzykule</a></span> bueno, la verdad que no está tan mal. Pero aun asi...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166291593794564096" target="_blank">74</a> </span>: [<span id="fecha">Sun Feb 05 22:46:20 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Krazzykule">@Krazzykule</a></span> solo con ver el enlace ya te odio xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166289823680839681" target="_blank">75</a> </span>: [<span id="fecha">Sun Feb 05 22:39:18 +0000 2012</span>] Plataforma para que el nigger de <span id="mencion"><a target="_blank" href="https://twitter.com/AngryGrapefruit">@AngryGrapefruit</a></span> use twitter <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span></p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166289613353263104" target="_blank">76</a> </span>: [<span id="fecha">Sun Feb 05 22:38:27 +0000 2012</span>] Odiar Francia <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=esserespa">#esserespa</a></span>ñol</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166289505861644288" target="_blank">77</a> </span>: [<span id="fecha">Sun Feb 05 22:38:02 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Krazzykule">@Krazzykule</a></span> mi TL ahoramismo está lleno de esos xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166289075446366208" target="_blank">78</a> </span>: [<span id="fecha">Sun Feb 05 22:36:19 +0000 2012</span>] Callejeros viajeros en Japón. Oh wait. http://t.co/z7oRpgvY</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166269401593688064" target="_blank">79</a> </span>: [<span id="fecha">Sun Feb 05 21:18:09 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> nooooooooooooooooooo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166268147312230400" target="_blank">80</a> </span>: [<span id="fecha">Sun Feb 05 21:13:10 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> el helado siempre da mucho juego</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166266357732753408" target="_blank">81</a> </span>: [<span id="fecha">Sun Feb 05 21:06:03 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span>  <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> yo como no sea en verano.. xD pero si que me apuntaria si.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166265546113957888" target="_blank">82</a> </span>: [<span id="fecha">Sun Feb 05 21:02:49 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> ahora me estoy acordando de esto: https://t.co/vxouAsZl xD que tiempos.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166264435382550528" target="_blank">83</a> </span>: [<span id="fecha">Sun Feb 05 20:58:25 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> y el blog es de la madre de bea xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166264153403691009" target="_blank">84</a> </span>: [<span id="fecha">Sun Feb 05 20:57:17 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> O____________O</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166259853784911872" target="_blank">85</a> </span>: [<span id="fecha">Sun Feb 05 20:40:12 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/GenbuOfDune">@GenbuOfDune</a></span> xDD =P Noes. Me la juego otra vez, en bus. Si no me dejan, ya me lo pensaré...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166258632084832256" target="_blank">86</a> </span>: [<span id="fecha">Sun Feb 05 20:35:21 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/GenbuOfDune">@GenbuOfDune</a></span> aiba, como te oiga mi TL te mata xDD. Nah pero solo (creo) estaba cortada por Logroño, por Vitoria si que se podia (autovia)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166256267457863682" target="_blank">87</a> </span>: [<span id="fecha">Sun Feb 05 20:25:57 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span>  <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> yo nunca lo he tenido claro del todo xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166255964033523712" target="_blank">88</a> </span>: [<span id="fecha">Sun Feb 05 20:24:45 +0000 2012</span>] De casi 220 millones, a poco más de 3 millones de posibilidades. A ver si con el tiempo puedo confirmar alguna hipótesis...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166255521094041600" target="_blank">89</a> </span>: [<span id="fecha">Sun Feb 05 20:22:59 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/l_dids_l">@l_dids_l</a></span> lo he pensado, pero tendria que ir el mismo dia a cambiar el billete por otro xD osea que me quedo igual</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166251112167518208" target="_blank">90</a> </span>: [<span id="fecha">Sun Feb 05 20:05:28 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> yo hace menos de muchisimo tiempo también la/lo vi. Que cosas tiene la vida xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166250746390642688" target="_blank">91</a> </span>: [<span id="fecha">Sun Feb 05 20:04:01 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/GenbuOfDune">@GenbuOfDune</a></span> no solo eso, sino que cuando he ido me han dicho que era el único que iba para Burgos u___u</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166250039033856001" target="_blank">92</a> </span>: [<span id="fecha">Sun Feb 05 20:01:12 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> tanto Adele me recuerda al señor-señora Adele que nos llevó de escursión al ebro en el cole. Os acordais verdad?</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166249884750589952" target="_blank">93</a> </span>: [<span id="fecha">Sun Feb 05 20:00:35 +0000 2012</span>]
+ Si que tengo algunas hipótesis sobre el patrón de las pass de la uni. 
+Más k el patrón, un pseudopatron interno. Pero es realmente complicado</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166249024658219008" target="_blank">94</a> </span>: [<span id="fecha">Sun Feb 05 19:57:10 +0000 2012</span>] <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=BestBandsIHaveSeenLive">#BestBandsIHaveSeenLive</a></span> undoubtedly Rammstein</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166245011543965697" target="_blank">95</a> </span>: [<span id="fecha">Sun Feb 05 19:41:14 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/l_dids_l">@l_dids_l</a></span> lo que mas me jode es tener que ir hasta la estación para saber si voy o no, en plan aventura xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166242502901379073" target="_blank">96</a> </span>: [<span id="fecha">Sun Feb 05 19:31:15 +0000 2012</span>] Me pregunto si mañana podré ir a Burgos...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166241646646804480" target="_blank">97</a> </span>: [<span id="fecha">Sun Feb 05 19:27:51 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/bluecolored">@bluecolored</a></span> lolazo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166241418363404288" target="_blank">98</a> </span>: [<span id="fecha">Sun Feb 05 19:26:57 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/SeteTheLast">@SeteTheLast</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/JaxVolt">@JaxVolt</a></span> no va a primero tampoco? a mi me ha parecido verlo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166240965152092160" target="_blank">99</a> </span>: [<span id="fecha">Sun Feb 05 19:25:09 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/AlvarVG">@AlvarVG</a></span> te respondo por aqui: peeeeeeeeerfecto mil gracias =)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166240355879092225" target="_blank">100</a> </span>: [<span id="fecha">Sun Feb 05 19:22:44 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/AlvarVG">@AlvarVG</a></span> ya</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166239839627382784" target="_blank">101</a> </span>: [<span id="fecha">Sun Feb 05 19:20:41 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/AlvarVG">@AlvarVG</a></span> te voy a mandar un privao en el tuenti, miralo en 5 minutos</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166239426375204864" target="_blank">102</a> </span>: [<span id="fecha">Sun Feb 05 19:19:02 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/SeteTheLast">@SeteTheLast</a></span> un dios, porque se ha matriculado de 20 el muy macho.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166220285299785728" target="_blank">103</a> </span>: [<span id="fecha">Sun Feb 05 18:02:58 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> downloading, danke schön!</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166217350213926912" target="_blank">104</a> </span>: [<span id="fecha">Sun Feb 05 17:51:19 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> yay, deberias tener mi correo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166187836293382145" target="_blank">105</a> </span>: [<span id="fecha">Sun Feb 05 15:54:02 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> lo peor es tener que ir hasta delicias (con el frio que hace en esa santa estación) para nada...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166187115766493185" target="_blank">106</a> </span>: [<span id="fecha">Sun Feb 05 15:51:10 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> estoy en zaragoza xD ahoramismo estaria camino de burgos de no ser de la puta nieve que me ha jodido el viaje</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166186787394433025" target="_blank">107</a> </span>: [<span id="fecha">Sun Feb 05 15:49:52 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/rethorico">@rethorico</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> si? no se, sí que he leido que segun la fuerza con que das la mano (por ejemplo) demuestras mas o menos confianza</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166186559052320768" target="_blank">108</a> </span>: [<span id="fecha">Sun Feb 05 15:48:57 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> por lo que he visto, igual hasta me lo compro, a mi me gustan mucho esos temas =P</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166185861996744704" target="_blank">109</a> </span>: [<span id="fecha">Sun Feb 05 15:46:11 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> hombre, al menos eso que muestras se ve interesante xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166184746643234816" target="_blank">110</a> </span>: [<span id="fecha">Sun Feb 05 15:41:45 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> de qué son esos apuntes?? los tienes en formato digital? se ven interesantes.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166183925985714176" target="_blank">111</a> </span>: [<span id="fecha">Sun Feb 05 15:38:30 +0000 2012</span>] Reirte de la gente que pronuncia bien el inglés <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=eresespa">#eresespa</a></span>ñol <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=ygilipollas">#ygilipollas</a></span></p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166181583534047232" target="_blank">112</a> </span>: [<span id="fecha">Sun Feb 05 15:29:11 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Krazzykule">@Krazzykule</a></span> al menos tienes nieve...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166161730827845634" target="_blank">113</a> </span>: [<span id="fecha">Sun Feb 05 14:10:18 +0000 2012</span>] En fin, ya en casita. Podria haber sido peor, mucho peor xD y encima me habia dejado algo en casa.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166158375938297857" target="_blank">114</a> </span>: [<span id="fecha">Sun Feb 05 13:56:58 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/shyba">@shyba</a></span> osea que ahora debe de.estar eso bastante jodido</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166158251245842432" target="_blank">115</a> </span>: [<span id="fecha">Sun Feb 05 13:56:28 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/shyba">@shyba</a></span> si, cuando salí de Burgos no habia nevado y a los 15 minutos veia bastante nieve</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166156587893932033" target="_blank">116</a> </span>: [<span id="fecha">Sun Feb 05 13:49:52 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> ya lo he pillado para mañana, a ver si tengo mejor suerte xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166153675314692096" target="_blank">117</a> </span>: [<span id="fecha">Sun Feb 05 13:38:17 +0000 2012</span>] Mision ir a Burgos fail. Ya estoy en la cola para cambiar el billete. Desde Logroño están cortados los accesos a Burgos.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166151901581287424" target="_blank">118</a> </span>: [<span id="fecha">Sun Feb 05 13:31:14 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> claro, y fisicamente las nuestras no son como las de un chino porque se han desarrollado diferentemente</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166148014078042112" target="_blank">119</a> </span>: [<span id="fecha">Sun Feb 05 13:15:48 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> si, pero no es el unico condicionante para hablar de una forma u otra</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166147723219845120" target="_blank">120</a> </span>: [<span id="fecha">Sun Feb 05 13:14:38 +0000 2012</span>] Que poca gente hay por la calle. Y no hace tampoco mucho frio y nada de viento. Y está despejado...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166144411015720961" target="_blank">121</a> </span>: [<span id="fecha">Sun Feb 05 13:01:29 +0000 2012</span>] A ver, probando el 3G. De camino a <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=Burgos">#Burgos</a></span> , espero que no tengamos problemas en la carretera con el bus.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166141278835326976" target="_blank">122</a> </span>: [<span id="fecha">Sun Feb 05 12:49:02 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> terminado tu etapa de desarrollado. Con las cuerdas vocales igual, no se desarrollan siempre hasta la muerte.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166141147029315584" target="_blank">123</a> </span>: [<span id="fecha">Sun Feb 05 12:48:30 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> porque se están desarrollando, y no es lo mismo hacer eso a los 3 años que a los 30. Igual a los 30 ni te crece más porque has</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166141034756194304" target="_blank">124</a> </span>: [<span id="fecha">Sun Feb 05 12:48:04 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span>
+ me recuerda a las chicas que se ponen aros en el cuello para tener el 
+cuello más largo, y lo hacen desde pequeñas, y tiene más efect</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166140867265052672" target="_blank">125</a> </span>: [<span id="fecha">Sun Feb 05 12:47:24 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> como biosanitario que dices, deberias saber que eso no es asi del todo.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166140686452789248" target="_blank">126</a> </span>: [<span id="fecha">Sun Feb 05 12:46:41 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> habria que ver si genéticamente hablando hay más parecido entre nosotros, o entre un chino-negro y nosotros.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166139346028724224" target="_blank">127</a> </span>: [<span id="fecha">Sun Feb 05 12:41:21 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span>
+ así que dependiendo de la raza, somos fisicamente distintos porque nos 
+hemos desarrollado diferente, y además viene en nuestros gnes</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166139032802304000" target="_blank">128</a> </span>: [<span id="fecha">Sun Feb 05 12:40:06 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> chino, porque vuestras cuerdas vocales son, estructuralmente iguales, fisicamente distintas (desarrolladas distintamente).</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166138913809907712" target="_blank">129</a> </span>: [<span id="fecha">Sun Feb 05 12:39:38 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span>
+ y me refiero a que las cuerdas vocales se desarrollan en función del 
+idioma. Nunca podrás imitar exactamente igual el sonido que un</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166138733068943360" target="_blank">130</a> </span>: [<span id="fecha">Sun Feb 05 12:38:55 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> estructuralmente hablando, eres igual que un niño de 3 años, pero físicamente no estarás a su altura para aprender un idioma</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166138479380672512" target="_blank">131</a> </span>: [<span id="fecha">Sun Feb 05 12:37:54 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> estructuralmente no, físicamente si.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166136808248328193" target="_blank">132</a> </span>: [<span id="fecha">Sun Feb 05 12:31:16 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> yo me referia al tema de los genes definitivamente.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166136676404568064" target="_blank">133</a> </span>: [<span id="fecha">Sun Feb 05 12:30:44 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> bueno no, porque la anatomia se refiere a las partes del cuerpo. Entonces solo seriamos distintos hombres de mujeres.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166135669599637504" target="_blank">134</a> </span>: [<span id="fecha">Sun Feb 05 12:26:44 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> y porque no? eso no está en los genes? -&gt; ADN</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166131540626120704" target="_blank">135</a> </span>: [<span id="fecha">Sun Feb 05 12:10:20 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> puedes dejar la regla ahi, no creo que te la vayan a robar, los políticos estarán en sus casas xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166130550493544449" target="_blank">136</a> </span>: [<span id="fecha">Sun Feb 05 12:06:24 +0000 2012</span>] RT <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span>: Y ya van 12 cm sobre el coche. http://t.co/b7Ep1COw</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166130442423111681" target="_blank">137</a> </span>: [<span id="fecha">Sun Feb 05 12:05:58 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> wtf pero bajas a contarlos? xDD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166128936345010176" target="_blank">138</a> </span>: [<span id="fecha">Sun Feb 05 11:59:59 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> en la anatomia? en la anatomia yo diria que si. Un hijo de chinos seguramente sea más bajito que un hijo de nórdicos.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166126388020125697" target="_blank">139</a> </span>: [<span id="fecha">Sun Feb 05 11:49:52 +0000 2012</span>] A veces, para ver obras de teatro no tienes que ir al teatro, sino abrir los ojos =P</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166126225348247554" target="_blank">140</a> </span>: [<span id="fecha">Sun Feb 05 11:49:13 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/shiorita">@shiorita</a></span> ya veré xD te recuerdo que vengo de un viaje de 4 horas que se alargarán por la fantástica situación de la carretera xD yay</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166126099342966784" target="_blank">141</a> </span>: [<span id="fecha">Sun Feb 05 11:48:43 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> en mi clase de 1º de ESO (hace ya siglos xD) habia una rumana que tenia acento de Zaragoza, incluso más que gente de Zaragoza.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166121594543017984" target="_blank">142</a> </span>: [<span id="fecha">Sun Feb 05 11:30:49 +0000 2012</span>]
+ Y la gracia que me va a hacer estar 40 minutos esperando en el único 
+sitio de Zaragoza donde hay pingüinos autóctonos: La estación Delicias</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166120896455643136" target="_blank">143</a> </span>: [<span id="fecha">Sun Feb 05 11:28:02 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> ya xD pero vamos. Ahora con toda la inmigración y los hijos que tendrán en España lo veremos en unos años.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166119630774091776" target="_blank">144</a> </span>: [<span id="fecha">Sun Feb 05 11:23:00 +0000 2012</span>] Así os retransmito el viajecito a Burgos, que va a ser una odisea por lo que veo...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166119555826073600" target="_blank">145</a> </span>: [<span id="fecha">Sun Feb 05 11:22:43 +0000 2012</span>]
+ Vale, casi mejor que cargo el móvil al 100%, por si acaso. Es más, creo
+ que hoy me voy a conectar en el bus usando el 3G. 3€ de clavada.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166119129663803392" target="_blank">146</a> </span>: [<span id="fecha">Sun Feb 05 11:21:01 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> omgggg. Pero es imprescindible que vaya, ya tengo el billete xD Al menos tengo el asiento 3 y veré todo.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166117546288885760" target="_blank">147</a> </span>: [<span id="fecha">Sun Feb 05 11:14:44 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Rivsie">@Rivsie</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> megusta.jpg</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166117477703614464" target="_blank">148</a> </span>: [<span id="fecha">Sun Feb 05 11:14:27 +0000 2012</span>] RT <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span>: 19 segundos para que la gente que está fuera de <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=Burgos">#Burgos</a></span>, como <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> o <span id="mencion"><a target="_blank" href="https://twitter.com/Rivsie">@Rivsie</a></span>, podáis ver nevar..  http://t.co/b8MniG9L</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166117424821837826" target="_blank">149</a> </span>: [<span id="fecha">Sun Feb 05 11:14:15 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> y cuando hablo con gente de mi tierra hablo con acento, sino, con acento neutro que yo llamo xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166117289178042369" target="_blank">150</a> </span>: [<span id="fecha">Sun Feb 05 11:13:42 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> y te pondré un ejemplo: soy de Lorca, Murcia, y llevo media vida en Zaragoza (más en realidad)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166109992775200768" target="_blank">151</a> </span>: [<span id="fecha">Sun Feb 05 10:44:43 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/emecyl112">@emecyl112</a></span> ahora la nieve ya no me hace tanta gracia .______. Confiemos en los skills de los autobuseros y los quitanieves.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166106663793852416" target="_blank">152</a> </span>: [<span id="fecha">Sun Feb 05 10:31:29 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> pues que de puta madre. no. -__-</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166106589193977856" target="_blank">153</a> </span>: [<span id="fecha">Sun Feb 05 10:31:11 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/shiorita">@shiorita</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/sephxlord">@sephxlord</a></span> ni zorren.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166106481387773952" target="_blank">154</a> </span>: [<span id="fecha">Sun Feb 05 10:30:45 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span>
+ depende de si sus padres están con él, los años que tenga cuando esté 
+en España y los años que haya crecido y practicado español.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166104147882549248" target="_blank">155</a> </span>: [<span id="fecha">Sun Feb 05 10:21:29 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/shiorita">@shiorita</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/Sephxlord">@Sephxlord</a></span> yo supongo que llegaré por la tarde noche, cosa de las 7-8 =D No será eso un reto de duelo?? Ojalá que para mañana siga</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166103653445410816" target="_blank">156</a> </span>: [<span id="fecha">Sun Feb 05 10:19:31 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> a dia de hoy hay gitanos eveywhere.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166103533991641088" target="_blank">157</a> </span>: [<span id="fecha">Sun Feb 05 10:19:03 +0000 2012</span>] Joer, con la nevada que hay en Burgos, que ya era hora, va a ser un infierno bajar al banco.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166102982235140097" target="_blank">158</a> </span>: [<span id="fecha">Sun Feb 05 10:16:51 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> pues viniendo de zgz, voy por logroño xD bueno, todavia les quedan horas para que lo limpien y no tenga problemas.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166102860172505090" target="_blank">159</a> </span>: [<span id="fecha">Sun Feb 05 10:16:22 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/shiorita">@shiorita</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/Sephxlord">@Sephxlord</a></span> siii que vengo hoy xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166101989716004864" target="_blank">160</a> </span>: [<span id="fecha">Sun Feb 05 10:12:55 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> SOLO??? que buena compra.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166101863106740224" target="_blank">161</a> </span>: [<span id="fecha">Sun Feb 05 10:12:24 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> voy a vivir al límite. Si, voy en bus, aunque no me hace gracia =S</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166101187945447424" target="_blank">162</a> </span>: [<span id="fecha">Sun Feb 05 10:09:43 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> a ver si sigue para cuando llegue, yay!!! =D</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/166100764274597889" target="_blank">163</a> </span>: [<span id="fecha">Sun Feb 05 10:08:02 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alv_aro91">@alv_aro91</a></span> está nevando ahora?</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165951909008654336" target="_blank">164</a> </span>: [<span id="fecha">Sun Feb 05 00:16:33 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/bvaldivielso">@bvaldivielso</a></span> xD seria muy extraño una carpeta asi</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165947819469971457" target="_blank">165</a> </span>: [<span id="fecha">Sun Feb 05 00:00:17 +0000 2012</span>]
+ Osea que con IE no tengo problemas para hacerme peticiones en paralelo 
+al localhost usando cURL. Y con Firefox si. Pues nada, a por IE.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165947686833500161" target="_blank">166</a> </span>: [<span id="fecha">Sat Feb 04 23:59:46 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/bvaldivielso">@bvaldivielso</a></span> bueno me he metido no, me metí cuando lo dije xD sino te la pasaba para que la vieras</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165947574291931136" target="_blank">167</a> </span>: [<span id="fecha">Sat Feb 04 23:59:19 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/bvaldivielso">@bvaldivielso</a></span> es una carpeta porque me he metido y sale todo el directorio. Esa es otra xDD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165945807223275520" target="_blank">168</a> </span>: [<span id="fecha">Sat Feb 04 23:52:18 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/bvaldivielso">@bvaldivielso</a></span> yo es la primera vez que lo veo, pero de todos modos no era un framework. Queda supercutre....</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165928960981606400" target="_blank">169</a> </span>: [<span id="fecha">Sat Feb 04 22:45:21 +0000 2012</span>] Si hago 127 peticiones en 2 segundos, se me para 7 segundos para hacer la siguiente. No me compensa esto..</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165927336624128000" target="_blank">170</a> </span>: [<span id="fecha">Sat Feb 04 22:38:54 +0000 2012</span>] Carpetas de servidores web que se llaman "Index.php"</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165876314803417089" target="_blank">171</a> </span>: [<span id="fecha">Sat Feb 04 19:16:09 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Sylmeria">@Sylmeria</a></span> joooooder, pues ten cuidado con lo que escribes xDD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165876147027066880" target="_blank">172</a> </span>: [<span id="fecha">Sat Feb 04 19:15:29 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Nairotsi">@Nairotsi</a></span> si al final has puesto la ropa en venta en tu blog lol</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165838147547185154" target="_blank">173</a> </span>: [<span id="fecha">Sat Feb 04 16:44:30 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/SeteTheLast">@SeteTheLast</a></span> en teoria no deberia. Es que para las imágenes no se muy bien como va. Para, por ejemplo, entradas de un blog, si que se podria</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165835920233349120" target="_blank">174</a> </span>: [<span id="fecha">Sat Feb 04 16:35:39 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/SeteTheLast">@SeteTheLast</a></span> pues es la única forma que sabia yo para proteger eso (hot-linking), usando el htaccess. Ni idea =S</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165832357943840770" target="_blank">175</a> </span>: [<span id="fecha">Sat Feb 04 16:21:29 +0000 2012</span>] Que bonito punto de ataque. A ver si prospera =)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165829081491963904" target="_blank">176</a> </span>: [<span id="fecha">Sat Feb 04 16:08:28 +0000 2012</span>] Va chicos, que no cuesta nada cambiar los permisos a una carpeta <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=UBU">#UBU</a></span> https://t.co/sFOMVjm3</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165828957860675584" target="_blank">177</a> </span>: [<span id="fecha">Sat Feb 04 16:07:59 +0000 2012</span>] wat <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=UBU">#UBU</a></span> https://t.co/YpDUA86a</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165828315284914178" target="_blank">178</a> </span>: [<span id="fecha">Sat Feb 04 16:05:25 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> preferirá que vayan a la universidad. Es lo "normal". Hace unos años se apoyaba más la FP...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165828227431010307" target="_blank">179</a> </span>: [<span id="fecha">Sat Feb 04 16:05:05 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> de todas maneras, ya te digo que es lo que piensa la mayoria de la gente. Piensa en una madre que quiere que sus hijos estudien</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165828137656139778" target="_blank">180</a> </span>: [<span id="fecha">Sat Feb 04 16:04:43 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> mola, por cierto, cuantos años tienes? siempre he pensado que eras jovenzuelo como yo, pero creo que no xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165822602370236416" target="_blank">181</a> </span>: [<span id="fecha">Sat Feb 04 15:42:43 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Dimitrix10">@Dimitrix10</a></span> si, es que ayer estuve hablando de eso y.. en otros paises no está tan "mal visto" no ser universitario</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165811153371529216" target="_blank">182</a> </span>: [<span id="fecha">Sat Feb 04 14:57:14 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> ya lo hice, nada más decirlo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165807940027170816" target="_blank">183</a> </span>: [<span id="fecha">Sat Feb 04 14:44:28 +0000 2012</span>] Esta va a ser la primera vez que bloquee a alguien, pero estoy hasta los huevos de retweets suyos &gt;|</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165806848451153920" target="_blank">184</a> </span>: [<span id="fecha">Sat Feb 04 14:40:07 +0000 2012</span>]
+ Si que es verdad que tenemos en mente que ser universitario es la 
+élite. Que vamos a ser lo más. Y mirar por encima del hombro al resto.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165801424473690112" target="_blank">185</a> </span>: [<span id="fecha">Sat Feb 04 14:18:34 +0000 2012</span>]
+ -What's that? you want strawberry or how about RAWBERRY!! made with 
+lightning -It's a energy drink for men, MENERGY!! http://t.co/gjnPLkOj</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165800345002450945" target="_blank">186</a> </span>: [<span id="fecha">Sat Feb 04 14:14:17 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span>  <span id="mencion"><a target="_blank" href="https://twitter.com/AngryGrapefruit">@AngryGrapefruit</a></span>  algo así es lo que os dije xD http://t.co/KLia6DBY</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165800047118794752" target="_blank">187</a> </span>: [<span id="fecha">Sat Feb 04 14:13:06 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/fundacion_alia2">@fundacion_alia2</a></span> si... esa es otra.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165797477755269120" target="_blank">188</a> </span>: [<span id="fecha">Sat Feb 04 14:02:53 +0000 2012</span>] Mi bienvenida a Twitter a otro hijo del metal <span id="mencion"><a target="_blank" href="https://twitter.com/AngryGrapefruit">@AngryGrapefruit</a></span></p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165787189542797312" target="_blank">189</a> </span>: [<span id="fecha">Sat Feb 04 13:22:00 +0000 2012</span>] Interesante noticia. Pero la universidad de zaragoza no es UZ, es Unizar!! http://t.co/To346FEb</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165786793319481344" target="_blank">190</a> </span>: [<span id="fecha">Sat Feb 04 13:20:26 +0000 2012</span>] Happy Birthday FACEBOOK ? Don't worry, I think Facebook is happy enough being a billionary estimated company.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165777828334407680" target="_blank">191</a> </span>: [<span id="fecha">Sat Feb 04 12:44:48 +0000 2012</span>] "Un Pueblo que no protege la pureza de su raza, se hecha a perder" via "El triunfo de la voluntad" &lt;- lol</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165775865714708480" target="_blank">192</a> </span>: [<span id="fecha">Sat Feb 04 12:37:01 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/alejandrunken">@alejandrunken</a></span> danke!!</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165775365581701121" target="_blank">193</a> </span>: [<span id="fecha">Sat Feb 04 12:35:01 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> xDD pues ya ves =P</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165774151343280128" target="_blank">194</a> </span>: [<span id="fecha">Sat Feb 04 12:30:12 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> igual que ainoa entonces...</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165773986209337344" target="_blank">195</a> </span>: [<span id="fecha">Sat Feb 04 12:29:32 +0000 2012</span>] Viendo el triunfo de la voluntad. En esta parte los muchachos estos se lo pasaban bomba.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165764527332397058" target="_blank">196</a> </span>: [<span id="fecha">Sat Feb 04 11:51:57 +0000 2012</span>] Insisto en que me saqueis fallos, conclusiones, comentarios, a pesar de que me quedaré sin peticiones http://t.co/NAGW9DLQ</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165764053501882370" target="_blank">197</a> </span>: [<span id="fecha">Sat Feb 04 11:50:04 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/SartOtaku">@SartOtaku</a></span> ing. informática. Tu veo que veterinaria.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165763638769102848" target="_blank">198</a> </span>: [<span id="fecha">Sat Feb 04 11:48:25 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/SartOtaku">@SartOtaku</a></span> yo ahora estoy en Zaragoza (Utebo realmente, justo al lado) Pero ahora suelo estar por Burgos, allí es donde estudio.</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165763167270600705" target="_blank">199</a> </span>: [<span id="fecha">Sat Feb 04 11:46:33 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/SartOtaku"><span id="mencion"></span></a><a target="_blank" href="https://twitter.com/SartOtaku">@SartOtaku</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> de donde eres? -&gt; <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> , <span id="mencion"><a target="_blank" href="https://twitter.com/SartOtaku"><span id="mencion"></span></a><a target="_blank" href="https://twitter.com/SartOtaku">@SartOtaku</a></span> &lt;-- ya sé que tu eres de zgz xD</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/165762824973463552" target="_blank">200</a> </span>: [<span id="fecha">Sat Feb 04 11:45:11 +0000 2012</span>] <span id="mencion"><a target="_blank" href="https://twitter.com/SartOtaku">@SartOtaku</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/Kithas">@Kithas</a></span> estas conversaciones molan más cuando es en persona.</p>
+			</div></div>
+		<div class="opciones" id="opcion3"><a href="http://twitter.com/PocketStash" target="_blank"><img id="avatar" title="Stasha V" src="stalker.php_files/twitter_normal.JPG"></a>
+		<a href="http://twitter.com/Dimitrix10" target="_blank"><img id="avatar" title="Dimitrix" src="stalker.php_files/DimitrixHack_normal.png"></a>
+		<a href="http://twitter.com/chowitox" target="_blank"><img id="avatar" title="Franklin  Lugo" src="stalker.php_files/BmrVtlay_normal.jpg"></a>
+		<a href="http://twitter.com/AngryGrapefruit" target="_blank"><img id="avatar" title="AngryGrapefruit" src="stalker.php_files/default_profile_3_normal.png"></a>
+		<a href="http://twitter.com/scorpionn" target="_blank"><img id="avatar" title="DMoll" src="stalker.php_files/dmoll_normal.png"></a>
+		<a href="http://twitter.com/L0rum4" target="_blank"><img id="avatar" title="Carlos Mario Gómez" src="stalker.php_files/adfsafdsa_normal.jpg"></a>
+		<a href="http://twitter.com/LZhock" target="_blank"><img id="avatar" title="lZhock" src="stalker.php_files/default_profile_1_normal.png"></a>
+		<a href="http://twitter.com/Jade_Wert" target="_blank"><img id="avatar" title="Jade_Wert" src="stalker.php_files/copo-de-nieve_normal.jpg"></a>
+		<a href="http://twitter.com/socialmurcia1" target="_blank"><img id="avatar" title="Social Murcia" src="stalker.php_files/twitter_normal.jpg"></a>
+		<a href="http://twitter.com/RodNuez" target="_blank"><img id="avatar" title="Rodolfo Nuñez" src="stalker.php_files/default_profile_1_normal.png"></a>
+		<a href="http://twitter.com/Roxcurt" target="_blank"><img id="avatar" title="Alex D. Crocodile" src="stalker.php_files/22855214_m_normal.jpg"></a>
+		<a href="http://twitter.com/Informatica64" target="_blank"><img id="avatar" title="Informática64" src="stalker.php_files/i64log_normal.gif"></a>
+		<a href="http://twitter.com/HighSk1ll" target="_blank"><img id="avatar" title="dominik bovensiepen" src="stalker.php_files/default_profile_1_normal.png"></a>
+		<a href="http://twitter.com/artexlaminas" target="_blank"><img id="avatar" title="artexlaminas" src="stalker.php_files/artexlaminas_normal.jpg"></a>
+		<a href="http://twitter.com/euforiaz" target="_blank"><img id="avatar" title="euforiaz " src="stalker.php_files/minimal_normal.jpg"></a>
+		<a href="http://twitter.com/alejandrunken" target="_blank"><img id="avatar" title="alejandro mallén" src="stalker.php_files/Sin_t_tulo-1_cIUopia_normal.jpg"></a>
+		<a href="http://twitter.com/iPhone4Spain" target="_blank"><img id="avatar" title="iPhone4Spain" src="stalker.php_files/logo-blanco_normal.png"></a>
+		<a href="http://twitter.com/NazaP_92" target="_blank"><img id="avatar" title="Nazaret Perez" src="stalker.php_files/2010__6__normal.jpg"></a>
+		<a href="http://twitter.com/MuRaNo_" target="_blank"><img id="avatar" title="Jeyson Henao" src="stalker.php_files/arch1_normal.jpg"></a>
+		<a href="http://twitter.com/MiguelGarciaMGS" target="_blank"><img id="avatar" title="Miguel García Samper" src="stalker.php_files/image__10__normal.jpg"></a>
+		<a href="http://twitter.com/larueprivee" target="_blank"><img id="avatar" title="La Rue Privee" src="stalker.php_files/WEB_VERSION_PRIN_normal.jpg"></a>
+		<a href="http://twitter.com/TedyBzg" target="_blank"><img id="avatar" title="Teodora Buzgau" src="stalker.php_files/IMAG0036_normal.jpg"></a>
+		<a href="http://twitter.com/curso_internet" target="_blank"><img id="avatar" title="Cursos a Distancia" src="stalker.php_files/tuscursosadistancia_Icono_normal.jpg"></a>
+		<a href="http://twitter.com/hectorhectoris" target="_blank"><img id="avatar" title="Héctor" src="stalker.php_files/image_normal_002.jpg"></a>
+		<a href="http://twitter.com/sergiorivas" target="_blank"><img id="avatar" title="Sergio Rivas" src="stalker.php_files/sergiorivas_normal.jpg"></a>
+		<a href="http://twitter.com/MiraiSama25" target="_blank"><img id="avatar" title="Mirai Sama" src="stalker.php_files/default_profile_6_normal.png"></a>
+		<a href="http://twitter.com/blayaosu" target="_blank"><img id="avatar" title="somero" src="stalker.php_files/Captura_de_pantalla_completa_18122011_174639.jpg"></a>
+		<a href="http://twitter.com/Erroria" target="_blank"><img id="avatar" title="Erroria" src="stalker.php_files/logo_chico_normal.png"></a>
+		<a href="http://twitter.com/Kronskin" target="_blank"><img id="avatar" title="Roderik de Novembre" src="stalker.php_files/Calavera-Khorne_normal.jpg"></a>
+		<a href="http://twitter.com/gonzalocamarero" target="_blank"><img id="avatar" title="Gonzalo Camarero" src="stalker.php_files/cara1_normal.png"></a>
+		<a href="http://twitter.com/HectorNaEm" target="_blank"><img id="avatar" title="ナサレ エンビド エクトル" src="stalker.php_files/663144_normal.jpg"></a>
+		<a href="http://twitter.com/hobbitpodcast" target="_blank"><img id="avatar" title="Hobbit Podcast" src="stalker.php_files/coverart_secretsofthehobbit2_normal.jpg"></a>
+		<a href="http://twitter.com/lolitanwvly0" target="_blank"><img id="avatar" title="Lolita Riggs" src="stalker.php_files/imagesCA4PMXEU_normal.jpg"></a>
+		<a href="http://twitter.com/FranGDT" target="_blank"><img id="avatar" title="Fran Garcia" src="stalker.php_files/image_normal_005.jpg"></a>
+		<a href="http://twitter.com/unrocko" target="_blank"><img id="avatar" title="unrocko" src="stalker.php_files/unrocko_normal.jpg"></a>
+		<a href="http://twitter.com/AlvarVG" target="_blank"><img id="avatar" title="Alvar Viana Gomez" src="stalker.php_files/87865859-981f-40ba-b838-cdbed1d51ebe_normal.png"></a>
+		<a href="http://twitter.com/Kithas" target="_blank"><img id="avatar" title="Kithäs 零 Zhyreshak " src="stalker.php_files/Hei_normal.png"></a>
+		<a href="http://twitter.com/MarisolHeavyLpe" target="_blank"><img id="avatar" title="Marisol...は猫を求めて" src="stalker.php_files/chitose_normal.JPG"></a>
+		<a href="http://twitter.com/JosS3c" target="_blank"><img id="avatar" title="Jose Angel Barrera" src="stalker.php_files/115554592_c2926db64d_normal.jpg"></a>
+		<a href="http://twitter.com/syxiqys" target="_blank"><img id="avatar" title="Njau Grzesiewicz" src="stalker.php_files/228_normal.gif"></a>
+		<a href="http://twitter.com/arstic_avs" target="_blank"><img id="avatar" title="ARSTIC" src="stalker.php_files/imagotipo_1200ppp_y_4000px_ancho_normal.png"></a>
+		<a href="http://twitter.com/FerSuper2" target="_blank"><img id="avatar" title="Ferran Conde" src="stalker.php_files/prova_binari_normal.png"></a>
+		<a href="http://twitter.com/IsmaIsmaFdez" target="_blank"><img id="avatar" title="Isma Isma Fdez" src="stalker.php_files/arma-blanca-012_normal.jpg"></a>
+		<a href="http://twitter.com/RubenR92CP" target="_blank"><img id="avatar" title="Rubén Temiño" src="stalker.php_files/Portada_normal.jpg"></a>
+		<a href="http://twitter.com/dabla83" target="_blank"><img id="avatar" title="helen g" src="stalker.php_files/DSC_9084_normal.JPG"></a>
+		<a href="http://twitter.com/MarTiikaSett" target="_blank"><img id="avatar" title="Martuxi Sett" src="stalker.php_files/images_normal.jpg"></a>
+		<a href="http://twitter.com/rNiubo" target="_blank"><img id="avatar" title="Rober" src="stalker.php_files/palacio2_normal.jpg"></a>
+		<a href="http://twitter.com/danielortiz_d" target="_blank"><img id="avatar" title="Daniel Ortiz" src="stalker.php_files/41327_157481634265731_100000116872998_516551_1028010_n_norma.jpg"></a>
+		<a href="http://twitter.com/Guardiadelmuro" target="_blank"><img id="avatar" title="Isildur" src="stalker.php_files/imagesCAYN114Z_normal.jpg"></a>
+		<a href="http://twitter.com/CarolannFerber" target="_blank"><img id="avatar" title="CarolannFerber" src="stalker.php_files/default_profile_3_normal.png"></a>
+		<a href="http://twitter.com/hectorseguridad" target="_blank"><img id="avatar" title="hector " src="stalker.php_files/1_normal.png"></a>
+		<a href="http://twitter.com/bvaldivielso" target="_blank"><img id="avatar" title="Braulio Valdivielso" src="stalker.php_files/I4-46gPiat36mcJ9AA_2__normal.jpg"></a>
+		<a href="http://twitter.com/AdorablyDark" target="_blank"><img id="avatar" title="Ana Lozano " src="stalker.php_files/e71b0297-381d-4e74-bcda-d215e74fd3dd_normal.png"></a>
+		<a href="http://twitter.com/AniFever" target="_blank"><img id="avatar" title="Ana González Segura" src="stalker.php_files/image_normal_004.jpg"></a>
+		<a href="http://twitter.com/colymore" target="_blank"><img id="avatar" title="Roberto Fernandez" src="stalker.php_files/android-open_normal.jpg"></a>
+		<a href="http://twitter.com/ladypinkspain" target="_blank"><img id="avatar" title="Lady Pink" src="stalker.php_files/Snapshot_20110914_4_normal.JPG"></a>
+		<a href="http://twitter.com/Sylmeria" target="_blank"><img id="avatar" title="Irene M" src="stalker.php_files/hari_normal.jpg"></a>
+		<a href="http://twitter.com/alv_aro91" target="_blank"><img id="avatar" title="Álvaro Pérez" src="stalker.php_files/image__3__normal.jpg"></a>
+		<a href="http://twitter.com/xavi_life" target="_blank"><img id="avatar" title="Xavi" src="stalker.php_files/image_normal_003.jpg"></a>
+		<a href="http://twitter.com/SALVAENFURECIDO" target="_blank"><img id="avatar" title="Salvador Kexol Tire" src="stalker.php_files/8F54D81E-081A-4420-991F-7098ABC3718C_normal.jpg"></a>
+		<a href="http://twitter.com/LaJamoneria" target="_blank"><img id="avatar" title="Félix Martínez" src="stalker.php_files/image_normal_008.jpg"></a>
+		<a href="http://twitter.com/thirybracere" target="_blank"><img id="avatar" title="うーみん" src="stalker.php_files/1531_normal.jpg"></a>
+		<a href="http://twitter.com/ElJavi_sv" target="_blank"><img id="avatar" title="Francisco Javier" src="stalker.php_files/lzvM3K1Ej-zPVodCgZ9.jpg"></a>
+		<a href="http://twitter.com/yellowhobbit" target="_blank"><img id="avatar" title="Irene Sánchez" src="stalker.php_files/40e2bed1-7f51-4ba6-9476-d3f436c3d314_normal.png"></a>
+		<a href="http://twitter.com/foromascotasorg" target="_blank"><img id="avatar" title="foromascotas.Org" src="stalker.php_files/logo_normal_002.png"></a>
+		<a href="http://twitter.com/Davideldezgz" target="_blank"><img id="avatar" title="David Moreno Barrios" src="stalker.php_files/0905aa018810842433032cbc_normal.jpg"></a>
+		<a href="http://twitter.com/puntcat" target="_blank"><img id="avatar" title="Domini .cat" src="stalker.php_files/logo_flickr_normal.jpg"></a>
+		<a href="http://twitter.com/Javiover" target="_blank"><img id="avatar" title="Javi" src="stalker.php_files/logo_guardia_civil_moderno_normal.jpg"></a>
+		<a href="http://twitter.com/iguanahosting" target="_blank"><img id="avatar" title="Iguanahosting.com" src="stalker.php_files/iguana_febrero_normal.jpg"></a>
+		<a href="http://twitter.com/DoritosGloomy" target="_blank"><img id="avatar" title="Gloomy Copcake" src="stalker.php_files/Z1x62j4p_normal.jpg"></a>
+		<a href="http://twitter.com/MeigHacks" target="_blank"><img id="avatar" title="Hackmeeting 2011" src="stalker.php_files/logo_normal.png"></a>
+		<a href="http://twitter.com/alvaruto" target="_blank"><img id="avatar" title="Álvaro Martínez" src="stalker.php_files/avatar_8bit_normal.jpg"></a>
+		<a href="http://twitter.com/rethorico" target="_blank"><img id="avatar" title="Alberto Rethor" src="stalker.php_files/H939YwOTYmEOu7a9BQ_normal.jpg"></a>
+		<a href="http://twitter.com/LTPastilla" target="_blank"><img id="avatar" title="LaTomaDeLaPastilla" src="stalker.php_files/pastillas_normal.jpg"></a>
+		<a href="http://twitter.com/JaxVolt" target="_blank"><img id="avatar" title="JaxVolt" src="stalker.php_files/1328367076618_normal.jpg"></a>
+		<a href="http://twitter.com/LaPagodaRoja" target="_blank"><img id="avatar" title="LaPagodaRoja" src="stalker.php_files/default_profile_1_normal.png"></a>
+		<a href="http://twitter.com/CDragonAzul" target="_blank"><img id="avatar" title="DragonAzul.es" src="stalker.php_files/dragonazul.jpg"></a>
+		<a href="http://twitter.com/Carlos_Arias" target="_blank"><img id="avatar" title="Carlos Arias" src="stalker.php_files/1206023634_f_normal.jpg"></a>
+		<a href="http://twitter.com/folou_me" target="_blank"><img id="avatar" title="foloume" src="stalker.php_files/foloume_Balloons-256_normal.png"></a>
+		<a href="http://twitter.com/AchUxD" target="_blank"><img id="avatar" title="Jesus Romero" src="stalker.php_files/161256_703619436_3836507_q_normal.jpg"></a>
+		<a href="http://twitter.com/amaliaaaa8185" target="_blank"><img id="avatar" title="amalia aaa" src="stalker.php_files/default_profile_4_normal.png"></a>
+		<a href="http://twitter.com/marta_gonvi" target="_blank"><img id="avatar" title="Marta Gonzalez" src="stalker.php_files/image_normal.jpg"></a>
+		<a href="http://twitter.com/SeteTheLast" target="_blank"><img id="avatar" title="Luis David 陰陽" src="stalker.php_files/polaroid_normal.png"></a>
+		<a href="http://twitter.com/LeoAyala48" target="_blank"><img id="avatar" title="leonardo ayala" src="stalker.php_files/74261_1718962893027_1206911783_31998886_1875738_n_normal.jpg"></a>
+		<a href="http://twitter.com/benjaa93" target="_blank"><img id="avatar" title="Benja Fernández" src="stalker.php_files/fotwitter_normal.jpg"></a>
+		<a href="http://twitter.com/zzarcon" target="_blank"><img id="avatar" title="hector ils labs" src="stalker.php_files/2miv_normal.jpg"></a>
+		<a href="http://twitter.com/Kamalnightmare" target="_blank"><img id="avatar" title="████████████████" src="stalker.php_files/22098b42-37f8-4a42-b457-35b6f04473fb_normal.png"></a>
+		<a href="http://twitter.com/latinuxpe" target="_blank"><img id="avatar" title="Latinux Perú" src="stalker.php_files/alcaravan-pe_normal.png"></a>
+		<a href="http://twitter.com/javieraea9710" target="_blank"><img id="avatar" title="javier aea" src="stalker.php_files/default_profile_0_normal.png"></a>
+		<a href="http://twitter.com/jcanto" target="_blank"><img id="avatar" title="Julio Canto" src="stalker.php_files/vader_smoke_normal.jpg"></a>
+		<a href="http://twitter.com/LIZETHZIARREOLA" target="_blank"><img id="avatar" title="sHiViLiZeTH17" src="stalker.php_files/P12-08-11_22-09_2__normal.jpg"></a>
+		<a href="http://twitter.com/SartOtaku" target="_blank"><img id="avatar" title="Leire Sarto~" src="stalker.php_files/th_image201110160001_normal.jpg"></a>
+		<a href="http://twitter.com/jihinep" target="_blank"><img id="avatar" title="Catlen Berrygun" src="stalker.php_files/854_normal.gif"></a>
+		<a href="http://twitter.com/Aivlis_Jane" target="_blank"><img id="avatar" title="Silvia V P" src="stalker.php_files/Rose_by_lieveheersbeestje_normal.jpg"></a>
+		<a href="http://twitter.com/MCanhizares" target="_blank"><img id="avatar" title="Matheus Canhizares" src="stalker.php_files/avatarpequeno_normal.jpg"></a>
+		<a href="http://twitter.com/1Kakou" target="_blank"><img id="avatar" title="kakou" src="stalker.php_files/default_profile_1_normal.png"></a>
+		<a href="http://twitter.com/chiri_nyan" target="_blank"><img id="avatar" title="███████████ " src="stalker.php_files/tumblr_ldvkh63UoN1qz7x7bo1_500_normal.jpg"></a>
+		<a href="http://twitter.com/zombiewrathnews" target="_blank"><img id="avatar" title="James Rattray" src="stalker.php_files/zombielogo_normal.jpg"></a>
+		<a href="http://twitter.com/shyba" target="_blank"><img id="avatar" title="Reina de los Frikys" src="stalker.php_files/02_normal.gif"></a>
+		<a href="http://twitter.com/Vodafoneestafa" target="_blank"><img id="avatar" title="Vodafone Estafa" src="stalker.php_files/vodafone_normal.jpg"></a>
+		<a href="http://twitter.com/LuverC" target="_blank"><img id="avatar" title="Cris Pequeño Hobbit" src="stalker.php_files/khr31_normal.png"></a>
+		<a href="http://twitter.com/Arkariho" target="_blank"><img id="avatar" title="Enrique" src="stalker.php_files/DSCN2782_normal.JPG"></a>
+		<a href="http://twitter.com/oskii_" target="_blank"><img id="avatar" title="El Tito Mc 2" src="stalker.php_files/imagesCAM0Y3KF_normal.jpg"></a>
+		<a href="http://twitter.com/Viny_Rec" target="_blank"><img id="avatar" title="Pablo" src="stalker.php_files/oie_2652921GGgGobRs_normal.gif"></a>
+		<a href="http://twitter.com/Camaras_Samsung" target="_blank"><img id="avatar" title="Cámaras Samsung" src="stalker.php_files/images_normal_002.jpg"></a>
+		<a href="http://twitter.com/DRonin1" target="_blank"><img id="avatar" title="Javier Pérez" src="stalker.php_files/060210ce-f3b6-46b9-b1f4-9d5c10ffaa74_normal.png"></a>
+		<a href="http://twitter.com/cosasquevendo" target="_blank"><img id="avatar" title="CosasQueVendo" src="stalker.php_files/logo_CqV_normal.JPG"></a>
+		<a href="http://twitter.com/commonexploits" target="_blank"><img id="avatar" title="Daniel Compton" src="stalker.php_files/logo-squarey_normal.jpg"></a>
+		<a href="http://twitter.com/JorgeHighwind" target="_blank"><img id="avatar" title="Jorge Casals Alonso" src="stalker.php_files/06b700b9-a742-4b4f-a8ac-75f243740b38_normal.png"></a>
+		<a href="http://twitter.com/CenTechReviews" target="_blank"><img id="avatar" title="CentralTechReviews" src="stalker.php_files/tech-ring-4_normal.jpg"></a>
+		<a href="http://twitter.com/Nairotsi" target="_blank"><img id="avatar" title="Midori-Reise" src="stalker.php_files/tytr_copia_normal.jpg"></a>
+		<a href="http://twitter.com/SoySarcastico" target="_blank"><img id="avatar" title="Sarkasticus" src="stalker.php_files/SoySarcastico_normal.jpg"></a>
+		<a href="http://twitter.com/DidsdA" target="_blank"><img id="avatar" title="Didi" src="stalker.php_files/lena_avatar_normal.jpg"></a>
+		<a href="http://twitter.com/Teri733" target="_blank"><img id="avatar" title="Teri Denboer" src="stalker.php_files/woman-20_normal.jpg"></a>
+		<a href="http://twitter.com/YeisonEng" target="_blank"><img id="avatar" title="Yeison Cardona" src="stalker.php_files/DSC06998_normal.JPG"></a>
+		<a href="http://twitter.com/luis_frigodedo" target="_blank"><img id="avatar" title="luis figueiredo" src="stalker.php_files/Imagen_017_normal.jpg"></a>
+		<a href="http://twitter.com/m1n0x88" target="_blank"><img id="avatar" title="Mariano Benito" src="stalker.php_files/marianomoki_normal.jpg"></a>
+		<a href="http://twitter.com/DominionMag" target="_blank"><img id="avatar" title="Dominion Magazine" src="stalker.php_files/377019_10150560742150309_175183455308_11402396_2100202683_n_.jpg"></a>
+		<a href="http://twitter.com/Sephxlord" target="_blank"><img id="avatar" title="パブロ~" src="stalker.php_files/Sin-t_tulo-1_normal.jpg"></a>
+		<a href="http://twitter.com/JuanShiro" target="_blank"><img id="avatar" title="Juan Suárez Herrera" src="stalker.php_files/6b5709ac-b57c-4949-98c2-8f0093bfeb9f_normal.png"></a>
+		<a href="http://twitter.com/klizzledotcom" target="_blank"><img id="avatar" title="klizzle" src="stalker.php_files/logo-tw_normal.jpg"></a>
+		<a href="http://twitter.com/salvakt" target="_blank"><img id="avatar" title="salvador " src="stalker.php_files/IMG_2047_normal.JPG"></a>
+		<a href="http://twitter.com/Dasoce" target="_blank"><img id="avatar" title="David Soto" src="stalker.php_files/4b3d8f6b-b37d-4215-aa27-30ac778e5309_normal.png"></a>
+		<a href="http://twitter.com/GenbuOfDune" target="_blank"><img id="avatar" title="Antonio Martínez" src="stalker.php_files/ShogoKawada_normal.jpg"></a>
+		<a href="http://twitter.com/l_dids_l" target="_blank"><img id="avatar" title="Dids" src="stalker.php_files/3af55787-6f64-4402-aa59-1e9a84e1ba39_normal.png"></a>
+		<a href="http://twitter.com/ayumiiita" target="_blank"><img id="avatar" title="Laura Stark" src="stalker.php_files/PWP-00094_normal.jpg"></a>
+		<a href="http://twitter.com/BraulioVM" target="_blank"><img id="avatar" title="Braulio Valdivielso" src="stalker.php_files/fPN-z8FA0p2kk-Udw07.jpg"></a>
+		<a href="http://twitter.com/Topofarmer" target="_blank"><img id="avatar" title="Topofarmer" src="stalker.php_files/Rainbow-Dash-American-sdalute-486_normal.png"></a>
+		<a href="http://twitter.com/KrisolRDC" target="_blank"><img id="avatar" title="Rodri" src="stalker.php_files/4c5e6d6e-0501-4a8d-829c-634bc9076e04_normal.png"></a>
+		<a href="http://twitter.com/urbama" target="_blank"><img id="avatar" title="Urbama - Madrid" src="stalker.php_files/logo-urbama_normal.jpg"></a>
+		<a href="http://twitter.com/teccloblog" target="_blank"><img id="avatar" title="teccloBlog" src="stalker.php_files/tecclo_normal.png"></a>
+		<a href="http://twitter.com/LordRNA" target="_blank"><img id="avatar" title="Luis Tangui" src="stalker.php_files/306992_10150327001899674_593909673_7797271_1170459117_n_norm.png"></a>
+		<a href="http://twitter.com/DarckJack00" target="_blank"><img id="avatar" title="Juan Gómez" src="stalker.php_files/photo_normal.jpg"></a>
+		<a href="http://twitter.com/guillesaurio" target="_blank"><img id="avatar" title="guillermo c." src="stalker.php_files/Foto_del_d_a_27-01-12_a_la_s__16.jpg"></a>
+		<a href="http://twitter.com/JOB_IT_Madrid" target="_blank"><img id="avatar" title="ARTURO GUTIERREZ" src="stalker.php_files/Empleo_IT_II_normal.jpg"></a>
+		<a href="http://twitter.com/horusint" target="_blank"><img id="avatar" title="horusint" src="stalker.php_files/image1327019263_normal.png"></a>
+		<a href="http://twitter.com/victorcolas" target="_blank"><img id="avatar" title="Victor Colas" src="stalker.php_files/avatartwiter_normal.jpg"></a>
+		<a href="http://twitter.com/Carloswaldo" target="_blank"><img id="avatar" title="char lie[22];" src="stalker.php_files/86emerald_normal.png"></a>
+		<a href="http://twitter.com/elchapax4" target="_blank"><img id="avatar" title="marcelo chareun" src="stalker.php_files/linux-wallpapers-15-500x400_normal.jpg"></a>
+		<a href="http://twitter.com/ServerWizard" target="_blank"><img id="avatar" title="Johann Engel" src="stalker.php_files/IMG_0975la_normal.jpg"></a>
+		<a href="http://twitter.com/misstechin" target="_blank"><img id="avatar" title="Monica Gimenez" src="stalker.php_files/image_normal_006.jpg"></a>
+		<a href="http://twitter.com/shiorita" target="_blank"><img id="avatar" title="Virginia" src="stalker.php_files/528159dc-5d0b-4332-8b6b-197cbd0a3002_normal.png"></a>
+		<a href="http://twitter.com/Darioxhcx" target="_blank"><img id="avatar" title="char twit[140];" src="stalker.php_files/DSC00137_copiaasd_normal.jpg"></a>
+		<a href="http://twitter.com/eatinghearts" target="_blank"><img id="avatar" title="Yolanda Aranda" src="stalker.php_files/303821_10150476737754703_644394702_10620564_1926873405_n_nor.jpg"></a>
+		<a href="http://twitter.com/Fitoschido" target="_blank"><img id="avatar" title="Adolfo" src="stalker.php_files/DSC07158_normal.JPG"></a>
+		<a href="http://twitter.com/janito24" target="_blank"><img id="avatar" title="Alejandro Ramirez" src="stalker.php_files/kl_normal.jpg"></a>
+		<a href="http://twitter.com/bluecolored" target="_blank"><img id="avatar" title="Alba" src="stalker.php_files/tumblr_lruqpjaCeR1qzlt5xo3_r1_500_normal.png"></a>
+		<a href="http://twitter.com/Rivsie" target="_blank"><img id="avatar" title="Rivos" src="stalker.php_files/0e7c559c-ce76-4432-9198-81deb2ad4ade_normal.JPG"></a>
+		<a href="http://twitter.com/Krazzykule" target="_blank"><img id="avatar" title="Pablo Krazzykule" src="stalker.php_files/PQ7dT_normal.png"></a>
+		<a href="http://twitter.com/kindle_riffic" target="_blank"><img id="avatar" title="The Kindle Store" src="stalker.php_files/kindle_normal.jpg"></a>
+		<a href="http://twitter.com/Airsoft_Store" target="_blank"><img id="avatar" title="The Airsoft Store" src="stalker.php_files/11_normal.jpg"></a>
+		<a href="http://twitter.com/sevaseviene" target="_blank"><img id="avatar" title="Coco" src="stalker.php_files/allmyfriends_normal.jpg"></a>
+		<a href="http://twitter.com/thestef1992" target="_blank"><img id="avatar" title="Stefanie Rau" src="stalker.php_files/siegerin_184_normal.jpg"></a>
+		<a href="http://twitter.com/lostbluedream" target="_blank"><img id="avatar" title="Turo" src="stalker.php_files/Devi_normal.jpg"></a>
+		<a href="http://twitter.com/sergiosg_23" target="_blank"><img id="avatar" title="Sergio Sánchez" src="stalker.php_files/avatar219467_21_normal.gif"></a>
+		</div>
+		<div class="opciones" id="opcion4"><a href="http://twitter.com/ServerWizard" target="_blank"><img id="avatar" title="Johann Engel" src="stalker.php_files/IMG_0975la_normal.jpg"></a>
+		<a href="http://twitter.com/Dimitrix10" target="_blank"><img id="avatar" title="Dimitrix" src="stalker.php_files/DimitrixHack_normal.png"></a>
+		<a href="http://twitter.com/AngryGrapefruit" target="_blank"><img id="avatar" title="AngryGrapefruit" src="stalker.php_files/default_profile_3_normal.png"></a>
+		<a href="http://twitter.com/PocketStash" target="_blank"><img id="avatar" title="Stasha V" src="stalker.php_files/twitter_normal.JPG"></a>
+		<a href="http://twitter.com/peterkruse" target="_blank"><img id="avatar" title="peterkruse" src="stalker.php_files/peter-kruse-farve_normal.jpg"></a>
+		<a href="http://twitter.com/Arkariho" target="_blank"><img id="avatar" title="Enrique" src="stalker.php_files/DSCN2782_normal.JPG"></a>
+		<a href="http://twitter.com/sevaseviene" target="_blank"><img id="avatar" title="Coco" src="stalker.php_files/allmyfriends_normal.jpg"></a>
+		<a href="http://twitter.com/Informatica64" target="_blank"><img id="avatar" title="Informática64" src="stalker.php_files/i64log_normal.gif"></a>
+		<a href="http://twitter.com/LuverC" target="_blank"><img id="avatar" title="Cris Pequeño Hobbit" src="stalker.php_files/khr31_normal.png"></a>
+		<a href="http://twitter.com/Krazzykule" target="_blank"><img id="avatar" title="Pablo Krazzykule" src="stalker.php_files/PQ7dT_normal.png"></a>
+		<a href="http://twitter.com/alejandrunken" target="_blank"><img id="avatar" title="alejandro mallén" src="stalker.php_files/Sin_t_tulo-1_cIUopia_normal.jpg"></a>
+		<a href="http://twitter.com/MiguelGarciaMGS" target="_blank"><img id="avatar" title="Miguel García Samper" src="stalker.php_files/image__10__normal.jpg"></a>
+		<a href="http://twitter.com/misstechin" target="_blank"><img id="avatar" title="Monica Gimenez" src="stalker.php_files/image_normal_006.jpg"></a>
+		<a href="http://twitter.com/muyinteresante" target="_blank"><img id="avatar" title="MUY Interesante" src="stalker.php_files/muy3_normal.jpg"></a>
+		<a href="http://twitter.com/JuanShiro" target="_blank"><img id="avatar" title="Juan Suárez Herrera" src="stalker.php_files/6b5709ac-b57c-4949-98c2-8f0093bfeb9f_normal.png"></a>
+		<a href="http://twitter.com/unaaldia" target="_blank"><img id="avatar" title="Hispasec Sistemas" src="stalker.php_files/logo3_normal.png"></a>
+		<a href="http://twitter.com/sergiorivas" target="_blank"><img id="avatar" title="Sergio Rivas" src="stalker.php_files/sergiorivas_normal.jpg"></a>
+		<a href="http://twitter.com/NASA" target="_blank"><img id="avatar" title="NASA" src="stalker.php_files/nasalogo_twitter_normal.jpg"></a>
+		<a href="http://twitter.com/guillesaurio" target="_blank"><img id="avatar" title="guillermo c." src="stalker.php_files/Foto_del_d_a_27-01-12_a_la_s__16.jpg"></a>
+		<a href="http://twitter.com/4chan" target="_blank"><img id="avatar" title="4chan" src="stalker.php_files/logo-twitter_normal.png"></a>
+		<a href="http://twitter.com/seguridadyredes" target="_blank"><img id="avatar" title="Alfon SeguridadRedes" src="stalker.php_files/Alfon_normal.jpg"></a>
+		<a href="http://twitter.com/hobbitpodcast" target="_blank"><img id="avatar" title="Hobbit Podcast" src="stalker.php_files/coverart_secretsofthehobbit2_normal.jpg"></a>
+		<a href="http://twitter.com/MSFTnews" target="_blank"><img id="avatar" title="Microsoft News" src="stalker.php_files/72x72_msftnews_normal.png"></a>
+		<a href="http://twitter.com/BraulioVM" target="_blank"><img id="avatar" title="Braulio Valdivielso" src="stalker.php_files/fPN-z8FA0p2kk-Udw07.jpg"></a>
+		<a href="http://twitter.com/Kithas" target="_blank"><img id="avatar" title="Kithäs 零 Zhyreshak " src="stalker.php_files/Hei_normal.png"></a>
+		<a href="http://twitter.com/IngenierosFFUUU" target="_blank"><img id="avatar" title="INGENIERO ENFURECIDO" src="stalker.php_files/250px-GATES_CONFERENCE_normal.png"></a>
+		<a href="http://twitter.com/MarisolHeavyLpe" target="_blank"><img id="avatar" title="Marisol...は猫を求めて" src="stalker.php_files/chitose_normal.JPG"></a>
+		<a href="http://twitter.com/AlvarVG" target="_blank"><img id="avatar" title="Alvar Viana Gomez" src="stalker.php_files/87865859-981f-40ba-b838-cdbed1d51ebe_normal.png"></a>
+		<a href="http://twitter.com/salvakt" target="_blank"><img id="avatar" title="salvador " src="stalker.php_files/IMG_2047_normal.JPG"></a>
+		<a href="http://twitter.com/sergiohernando" target="_blank"><img id="avatar" title="Sergio Hernando" src="stalker.php_files/sergiohernando1_normal.jpg"></a>
+		<a href="http://twitter.com/FranGDT" target="_blank"><img id="avatar" title="Fran Garcia" src="stalker.php_files/image_normal_005.jpg"></a>
+		<a href="http://twitter.com/Nairotsi" target="_blank"><img id="avatar" title="Midori-Reise" src="stalker.php_files/tytr_copia_normal.jpg"></a>
+		<a href="http://twitter.com/genbeta" target="_blank"><img id="avatar" title="Genbeta" src="stalker.php_files/twitter-genbeta-avatar_normal.jpg"></a>
+		<a href="http://twitter.com/dabla83" target="_blank"><img id="avatar" title="helen g" src="stalker.php_files/DSC_9084_normal.JPG"></a>
+		<a href="http://twitter.com/JorgeHighwind" target="_blank"><img id="avatar" title="Jorge Casals Alonso" src="stalker.php_files/06b700b9-a742-4b4f-a8ac-75f243740b38_normal.png"></a>
+		<a href="http://twitter.com/chemaalonso" target="_blank"><img id="avatar" title="Chema Alonso" src="stalker.php_files/avatartwuitter2_normal.jpg"></a>
+		<a href="http://twitter.com/Guardiadelmuro" target="_blank"><img id="avatar" title="Isildur" src="stalker.php_files/imagesCAYN114Z_normal.jpg"></a>
+		<a href="http://twitter.com/antonioroman" target="_blank"><img id="avatar" title="Antonio Roman" src="stalker.php_files/DSC01628_normal.JPG"></a>
+		<a href="http://twitter.com/rNiubo" target="_blank"><img id="avatar" title="Rober" src="stalker.php_files/palacio2_normal.jpg"></a>
+		<a href="http://twitter.com/elhackernet" target="_blank"><img id="avatar" title="elhacker.NET" src="stalker.php_files/e-peq1_normal.png"></a>
+		<a href="http://twitter.com/l_dids_l" target="_blank"><img id="avatar" title="Dids" src="stalker.php_files/3af55787-6f64-4402-aa59-1e9a84e1ba39_normal.png"></a>
+		<a href="http://twitter.com/victorcolas" target="_blank"><img id="avatar" title="Victor Colas" src="stalker.php_files/avatartwiter_normal.jpg"></a>
+		<a href="http://twitter.com/DidsdA" target="_blank"><img id="avatar" title="Didi" src="stalker.php_files/lena_avatar_normal.jpg"></a>
+		<a href="http://twitter.com/bvaldivielso" target="_blank"><img id="avatar" title="Braulio Valdivielso" src="stalker.php_files/I4-46gPiat36mcJ9AA_2__normal.jpg"></a>
+		<a href="http://twitter.com/DRonin1" target="_blank"><img id="avatar" title="Javier Pérez" src="stalker.php_files/060210ce-f3b6-46b9-b1f4-9d5c10ffaa74_normal.png"></a>
+		<a href="http://twitter.com/google" target="_blank"><img id="avatar" title="A Googler" src="stalker.php_files/favicon_normal.png"></a>
+		<a href="http://twitter.com/AniFever" target="_blank"><img id="avatar" title="Ana González Segura" src="stalker.php_files/image_normal_004.jpg"></a>
+		<a href="http://twitter.com/sergiosg_23" target="_blank"><img id="avatar" title="Sergio Sánchez" src="stalker.php_files/avatar219467_21_normal.gif"></a>
+		<a href="http://twitter.com/ladypinkspain" target="_blank"><img id="avatar" title="Lady Pink" src="stalker.php_files/Snapshot_20110914_4_normal.JPG"></a>
+		<a href="http://twitter.com/bluecolored" target="_blank"><img id="avatar" title="Alba" src="stalker.php_files/tumblr_lruqpjaCeR1qzlt5xo3_r1_500_normal.png"></a>
+		<a href="http://twitter.com/BillGates" target="_blank"><img id="avatar" title="Bill Gates" src="stalker.php_files/Picture_18_normal.png"></a>
+		<a href="http://twitter.com/shiorita" target="_blank"><img id="avatar" title="Virginia" src="stalker.php_files/528159dc-5d0b-4332-8b6b-197cbd0a3002_normal.png"></a>
+		<a href="http://twitter.com/ayumiiita" target="_blank"><img id="avatar" title="Laura Stark" src="stalker.php_files/PWP-00094_normal.jpg"></a>
+		<a href="http://twitter.com/MASAJAKER" target="_blank"><img id="avatar" title="masajaker" src="stalker.php_files/gatito_cabreado_normal.png"></a>
+		<a href="http://twitter.com/LaJamoneria" target="_blank"><img id="avatar" title="Félix Martínez" src="stalker.php_files/image_normal_008.jpg"></a>
+		<a href="http://twitter.com/alv_aro91" target="_blank"><img id="avatar" title="Álvaro Pérez" src="stalker.php_files/image__3__normal.jpg"></a>
+		<a href="http://twitter.com/Windows" target="_blank"><img id="avatar" title="Microsoft Windows" src="stalker.php_files/Twitter_Windows_01-icon-noTransparent_normal.png"></a>
+		<a href="http://twitter.com/Topofarmer" target="_blank"><img id="avatar" title="Topofarmer" src="stalker.php_files/Rainbow-Dash-American-sdalute-486_normal.png"></a>
+		<a href="http://twitter.com/WhatTheFFacts" target="_blank"><img id="avatar" title="What The F Facts" src="stalker.php_files/WTFFacts_normal.jpg"></a>
+		<a href="http://twitter.com/Davideldezgz" target="_blank"><img id="avatar" title="David Moreno Barrios" src="stalker.php_files/0905aa018810842433032cbc_normal.jpg"></a>
+		<a href="http://twitter.com/m1n0x88" target="_blank"><img id="avatar" title="Mariano Benito" src="stalker.php_files/marianomoki_normal.jpg"></a>
+		<a href="http://twitter.com/Sylmeria" target="_blank"><img id="avatar" title="Irene M" src="stalker.php_files/hari_normal.jpg"></a>
+		<a href="http://twitter.com/secbydefault" target="_blank"><img id="avatar" title="Security By Default" src="stalker.php_files/Copia_de_icon_sbd_normal.JPG"></a>
+		<a href="http://twitter.com/LordRNA" target="_blank"><img id="avatar" title="Luis Tangui" src="stalker.php_files/306992_10150327001899674_593909673_7797271_1170459117_n_norm.png"></a>
+		<a href="http://twitter.com/Fitoschido" target="_blank"><img id="avatar" title="Adolfo" src="stalker.php_files/DSC07158_normal.JPG"></a>
+		<a href="http://twitter.com/Rivsie" target="_blank"><img id="avatar" title="Rivos" src="stalker.php_files/0e7c559c-ce76-4432-9198-81deb2ad4ade_normal.JPG"></a>
+		<a href="http://twitter.com/forensikblog" target="_blank"><img id="avatar" title="Andreas Schuster" src="stalker.php_files/stayfriends_normal.jpg"></a>
+		<a href="http://twitter.com/aramosf" target="_blank"><img id="avatar" title="Alejandro Ramos" src="stalker.php_files/profile_normal.png"></a>
+		<a href="http://twitter.com/Dasoce" target="_blank"><img id="avatar" title="David Soto" src="stalker.php_files/4b3d8f6b-b37d-4215-aa27-30ac778e5309_normal.png"></a>
+		<a href="http://twitter.com/Javiover" target="_blank"><img id="avatar" title="Javi" src="stalker.php_files/logo_guardia_civil_moderno_normal.jpg"></a>
+		<a href="http://twitter.com/rethorico" target="_blank"><img id="avatar" title="Alberto Rethor" src="stalker.php_files/H939YwOTYmEOu7a9BQ_normal.jpg"></a>
+		<a href="http://twitter.com/jcran" target="_blank"><img id="avatar" title="jcran" src="stalker.php_files/yellow_normal.png"></a>
+		<a href="http://twitter.com/JaxVolt" target="_blank"><img id="avatar" title="JaxVolt" src="stalker.php_files/1328367076618_normal.jpg"></a>
+		<a href="http://twitter.com/Carloswaldo" target="_blank"><img id="avatar" title="char lie[22];" src="stalker.php_files/86emerald_normal.png"></a>
+		<a href="http://twitter.com/Carlos_Arias" target="_blank"><img id="avatar" title="Carlos Arias" src="stalker.php_files/1206023634_f_normal.jpg"></a>
+		<a href="http://twitter.com/KrisolRDC" target="_blank"><img id="avatar" title="Rodri" src="stalker.php_files/4c5e6d6e-0501-4a8d-829c-634bc9076e04_normal.png"></a>
+		<a href="http://twitter.com/folou_me" target="_blank"><img id="avatar" title="foloume" src="stalker.php_files/foloume_Balloons-256_normal.png"></a>
+		<a href="http://twitter.com/janito24" target="_blank"><img id="avatar" title="Alejandro Ramirez" src="stalker.php_files/kl_normal.jpg"></a>
+		<a href="http://twitter.com/marta_gonvi" target="_blank"><img id="avatar" title="Marta Gonzalez" src="stalker.php_files/image_normal.jpg"></a>
+		<a href="http://twitter.com/benjaa93" target="_blank"><img id="avatar" title="Benja Fernández" src="stalker.php_files/fotwitter_normal.jpg"></a>
+		<a href="http://twitter.com/YeisonEng" target="_blank"><img id="avatar" title="Yeison Cardona" src="stalker.php_files/DSC06998_normal.JPG"></a>
+		<a href="http://twitter.com/commonexploits" target="_blank"><img id="avatar" title="Daniel Compton" src="stalker.php_files/logo-squarey_normal.jpg"></a>
+		<a href="http://twitter.com/SeteTheLast" target="_blank"><img id="avatar" title="Luis David 陰陽" src="stalker.php_files/polaroid_normal.png"></a>
+		<a href="http://twitter.com/GenbuOfDune" target="_blank"><img id="avatar" title="Antonio Martínez" src="stalker.php_files/ShogoKawada_normal.jpg"></a>
+		<a href="http://twitter.com/kevinmitnick" target="_blank"><img id="avatar" title="Kevin Mitnick" src="stalker.php_files/Mitnick_Color_normal.jpg"></a>
+		<a href="http://twitter.com/Sephxlord" target="_blank"><img id="avatar" title="パブロ~" src="stalker.php_files/Sin-t_tulo-1_normal.jpg"></a>
+		<a href="http://twitter.com/lostbluedream" target="_blank"><img id="avatar" title="Turo" src="stalker.php_files/Devi_normal.jpg"></a>
+		<a href="http://twitter.com/SartOtaku" target="_blank"><img id="avatar" title="Leire Sarto~" src="stalker.php_files/th_image201110160001_normal.jpg"></a>
+		<a href="http://twitter.com/fertejerom" target="_blank"><img id="avatar" title="FernandoTejero" src="stalker.php_files/image_normal_007.jpg"></a>
+		<a href="http://twitter.com/jcanto" target="_blank"><img id="avatar" title="Julio Canto" src="stalker.php_files/vader_smoke_normal.jpg"></a>
+		<a href="http://twitter.com/roman_soft" target="_blank"><img id="avatar" title="☠ ʇɟosuɐɯoɹ" src="stalker.php_files/dsr_msn_normal.jpg"></a>
+		<a href="http://twitter.com/RZKVL1" target="_blank"><img id="avatar" title="Richard Z. Kruspe" src="stalker.php_files/0e3kve45si1ck3ec_normal.jpg"></a>
+		<a href="http://twitter.com/ascodevida" target="_blank"><img id="avatar" title="Asco de vida" src="stalker.php_files/logoSquare_bigger_normal.gif"></a>
+		<a href="http://twitter.com/eatinghearts" target="_blank"><img id="avatar" title="Yolanda Aranda" src="stalker.php_files/303821_10150476737754703_644394702_10620564_1926873405_n_nor.jpg"></a>
+		<a href="http://twitter.com/MCanhizares" target="_blank"><img id="avatar" title="Matheus Canhizares" src="stalker.php_files/avatarpequeno_normal.jpg"></a>
+		<a href="http://twitter.com/chiri_nyan" target="_blank"><img id="avatar" title="███████████ " src="stalker.php_files/tumblr_ldvkh63UoN1qz7x7bo1_500_normal.jpg"></a>
+		<a href="http://twitter.com/GDTGuardiaCivil" target="_blank"><img id="avatar" title="GDT Guardia Civil" src="stalker.php_files/GDT-Trans__FaceBook__400x400_normal.png"></a>
+		<a href="http://twitter.com/shyba" target="_blank"><img id="avatar" title="Reina de los Frikys" src="stalker.php_files/02_normal.gif"></a>
+		<a href="http://twitter.com/Aivlis_Jane" target="_blank"><img id="avatar" title="Silvia V P" src="stalker.php_files/Rose_by_lieveheersbeestje_normal.jpg"></a>
+		</div>
+		<div class="opciones" id="opcion5"><br><input value="Show/Hide dates" id="botonfecha-favs" type="button"><br><div id="tweets-favs"><p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/158529776548716544" target="_blank">1</a></span>: [<span id="fecha-favs">Sun Jan 15 12:43:38 +0000 2012</span>] [<a href="http://twitter.com/Informatica64" target="_blank">Informatica64</a>] Windows Técnico - Juego Cut the rope en HTML5 http://t.co/RPcKgstt <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=juegos">#juegos</a></span> <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=gratis">#gratis</a></span> <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=IE9">#IE9</a></span> <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=IE10">#IE10</a></span> <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=Windows8">#Windows8</a></span> <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=microsoft">#microsoft</a></span></p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/157503445232926721" target="_blank">2</a></span>: [<span id="fecha-favs">Thu Jan 12 16:45:22 +0000 2012</span>] [<a href="http://twitter.com/jcran" target="_blank">jcran</a>] Pentesting Vulnerable Study Frameworks Complete List |: http://t.co/mtREKtlw</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/157216873665134592" target="_blank">3</a></span>: [<span id="fecha-favs">Wed Jan 11 21:46:38 +0000 2012</span>] [<a href="http://twitter.com/daboblog" target="_blank">daboblog</a>] Mira la conf y seguridad de <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=PHP">#PHP</a></span> en tu server con <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=PhpSecInfo">#PhpSecInfo</a></span> (súbelo a tu web, luego tu_web/phpsecinfo/index.php) http://t.co/yWbzgJkq <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=Sec">#Sec</a></span></p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/156692628224737280" target="_blank">4</a></span>: [<span id="fecha-favs">Tue Jan 10 11:03:28 +0000 2012</span>] [<a href="http://twitter.com/peterkruse" target="_blank">peterkruse</a>] Forensic email data analysis tool (Evidence Analyzer), http://t.co/wG9oU0jp</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/156665884767830017" target="_blank">5</a></span>: [<span id="fecha-favs">Tue Jan 10 09:17:12 +0000 2012</span>] [<a href="http://twitter.com/salvakt" target="_blank">salvakt</a>] Las 13 claves para ser feliz según un profesor de Harvard http://t.co/bZRD4O1S</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/156457552949936128" target="_blank">6</a></span>: [<span id="fecha-favs">Mon Jan 09 19:29:22 +0000 2012</span>] [<a href="http://twitter.com/roman_soft" target="_blank">roman_soft</a>] Currency rounding attacks (or how to get rich by exchanging cent by cent): http://t.co/4aAJc73r</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/156137985367212032" target="_blank">7</a></span>: [<span id="fecha-favs">Sun Jan 08 22:19:31 +0000 2012</span>] [<a href="http://twitter.com/Nairotsi" target="_blank">Nairotsi</a>] A la cuarta va la vencida!!! por <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> xDDD http://t.co/ky4tp9Fs</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/154605558622728192" target="_blank">8</a></span>: [<span id="fecha-favs">Wed Jan 04 16:50:12 +0000 2012</span>] [<a href="http://twitter.com/ServerWizard" target="_blank">ServerWizard</a>] Hoy he soñado que estaba con  <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> en una estación de metro de Madrid viendo tocar a Rammstein. <span id="hashtag"><a id="hashtag" target="_blank" href="https://twitter.com/search?q=epicwin">#epicwin</a></span></p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/131849395086962689" target="_blank">9</a></span>: [<span id="fecha-favs">Wed Nov 02 21:45:20 +0000 2011</span>] [<a href="http://twitter.com/Rivsie" target="_blank">Rivsie</a>] <span id="mencion"><a target="_blank" href="https://twitter.com/marta_vigo">@marta_vigo</a></span> "Las carreras de letras son igual o más difíciles que las de ciencias" SILLAZO EN LA CARA</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/127839162773676032" target="_blank">10</a></span>: [<span id="fecha-favs">Sat Oct 22 20:10:06 +0000 2011</span>] [<a href="http://twitter.com/GenbuOfDune" target="_blank">GenbuOfDune</a>] <span id="mencion"><a target="_blank" href="https://twitter.com/ServerWizard">@ServerWizard</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/victorcolas">@victorcolas</a></span> Sé que vosotros apreciaréis esta serie: http://t.co/av4gBI63 <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> no lo sé</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/116946023271768065" target="_blank">11</a></span>: [<span id="fecha-favs">Thu Sep 22 18:44:39 +0000 2011</span>] [<a href="http://twitter.com/m1n0x88" target="_blank">m1n0x88</a>] <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> si, es de unos compañeros de curro y ya se han pasado a la 1.8.1 --&gt; http://t.co/QMk1hyPe</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/103830078735126528" target="_blank">12</a></span>: [<span id="fecha-favs">Wed Aug 17 14:06:34 +0000 2011</span>] [<a href="http://twitter.com/Nairotsi" target="_blank">Nairotsi</a>] Qué raro, casi no hay gente en el msn ;w; a <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> se le ha tragado la tierra ¬¬</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/81071550001971200" target="_blank">13</a></span>: [<span id="fecha-favs">Wed Jun 15 18:52:18 +0000 2011</span>] [<a href="http://twitter.com/jmlipman" target="_blank">jmlipman</a>] Gracias a <span id="mencion"><a target="_blank" href="https://twitter.com/salvakt">@salvakt</a></span> y <span id="mencion"><a target="_blank" href="https://twitter.com/guillesaurio">@guillesaurio</a></span> no he pasado una tarde aburrida ni sola ^^ era casi como si estuvieramos juntos comentando todo =P</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/57846688433451008" target="_blank">14</a></span>: [<span id="fecha-favs">Tue Apr 12 16:44:59 +0000 2011</span>] [<a href="http://twitter.com/secbydefault" target="_blank">secbydefault</a>] <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> tarde o temprano lo podrás publicar sin problemas, en estos casos es necesaria la paciencia, aunque pueda llegar a agotarse ;)</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/57327097961652224" target="_blank">15</a></span>: [<span id="fecha-favs">Mon Apr 11 06:20:19 +0000 2011</span>] [<a href="http://twitter.com/chemaalonso" target="_blank">chemaalonso</a>] <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> Tranquilidad, yo también sufría de Pánico http://bit.ly/ejnF0M }:))</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/54482894571323392" target="_blank">16</a></span>: [<span id="fecha-favs">Sun Apr 03 09:58:28 +0000 2011</span>] [<a href="http://twitter.com/secbydefault" target="_blank">secbydefault</a>] <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> ¡es un honor también para nosotros el poder enlazarla! Buen trabajo</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/54070504990064640" target="_blank">17</a></span>: [<span id="fecha-favs">Sat Apr 02 06:39:47 +0000 2011</span>] [<a href="http://twitter.com/chemaalonso" target="_blank">chemaalonso</a>] <span id="mencion"><a target="_blank" href="https://twitter.com/jmlipman">@jmlipman</a></span> ese no era yo... segurísimo!! Rock Rool3z!</p>
+			<p id="tweet_individual"><span id="numero"><a href="https://twitter.com/jmlipman/status/52069575772209153" target="_blank">18</a></span>: [<span id="fecha-favs">Sun Mar 27 18:08:48 +0000 2011</span>] [<a href="http://twitter.com/Nairotsi" target="_blank">Nairotsi</a>] <span id="mencion"><a target="_blank" href="https://twitter.com/l_dids_l">@l_dids_l</a></span> <span id="mencion"><a target="_blank" href="https://twitter.com/shiorita">@shiorita</a></span> cuando me comparo con los "jóvenes de hoy"... xDDD es que, no quiero hacerme mayor y acarrear responsabilidades xD</p>
+			</div></div>
+		<div class="opciones" id="opcion6">He/She doesn't follow/is followed by any list.</div>
+		<div class="opciones" id="opcion7"><table border="1">
+		<tbody><tr><td>Owner</td><td>Name</td><td>Members</td><td>Suscribers</td><td>Created at</td></tr><tr>
+			<td><a href="https://twitter.com/salvakt" target="_blank"><img title="salvador " src="stalker.php_files/IMG_2047_normal.JPG"></a></td><td><a href="https://twitter.com/salvakt/interesante" target="_blank">Interesante </a></td><td>25</td><td>1</td><td>Sun Dec 11 08:05:31 +0000 2011</td>
+			</tr><tr>
+			<td><a href="https://twitter.com/unrocko" target="_blank"><img title="unrocko" src="stalker.php_files/unrocko_normal.jpg"></a></td><td><a href="https://twitter.com/unrocko/develop" target="_blank">develop</a></td><td>5</td><td>0</td><td>Fri Jul 22 01:58:42 +0000 2011</td>
+			</tr><tr>
+			<td><a href="https://twitter.com/BraulioVM" target="_blank"><img title="Braulio Valdivielso" src="stalker.php_files/fPN-z8FA0p2kk-Udw07.jpg"></a></td><td><a href="https://twitter.com/BraulioVM/my-favstar-fm-list" target="_blank">My favstar.fm list</a></td><td>13</td><td>0</td><td>Mon Jun 27 22:06:19 +0000 2011</td>
+			</tr><tr>
+			<td><a href="https://twitter.com/borjareinares" target="_blank"><img title="Borja Reinares" src="stalker.php_files/11440_1180401663564_1033830373_30454981_5670710_n_normal.PNG"></a></td><td><a href="https://twitter.com/borjareinares/tuenticoding" target="_blank">TuentiCoding</a></td><td>59</td><td>1</td><td>Mon Jun 13 12:37:16 +0000 2011</td>
+			</tr><tr>
+			<td><a href="https://twitter.com/YeisonEng" target="_blank"><img title="Yeison Cardona" src="stalker.php_files/DSC06998_normal.JPG"></a></td><td><a href="https://twitter.com/YeisonEng/seguro-los-leo" target="_blank">Seguro_los_leo</a></td><td>26</td><td>1</td><td>Sun Jan 16 19:57:30 +0000 2011</td>
+			</tr><tr>
+			<td><a href="https://twitter.com/horusint" target="_blank"><img title="horusint" src="stalker.php_files/image1327019263_normal.png"></a></td><td><a href="https://twitter.com/horusint/security" target="_blank">Security</a></td><td>35</td><td>1</td><td>Fri Mar 18 12:36:59 +0000 2011</td>
+			</tr><tr>
+			<td><a href="https://twitter.com/ramons03" target="_blank"><img title=". RaMoNs ." src="stalker.php_files/300px-Color_icon_green.png"></a></td><td><a href="https://twitter.com/ramons03/geek" target="_blank">geek</a></td><td>500</td><td>15</td><td>Sun Aug 15 19:20:08 +0000 2010</td>
+			</tr></tbody></table></div>
+    
+</div>
+
+
+
+</body></html>

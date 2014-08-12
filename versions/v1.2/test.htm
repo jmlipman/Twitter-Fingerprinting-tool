@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style>
+div#contenedor {
+	background-color:#C0DEED;
+}
+
+div#imagen-principal {
+	background-image:url(bg.png);
+	background-repeat:no-repeat;
+	height:190px;
+	text-align:center;
+}
+
+div#imagen-principal span#titulo {
+	font-size:30px;
+}
+
+table#opciones {
+	cursor:default;
+	-moz-user-select: none; 
+	-o-user-select: none; 
+	-webkit-user-select: none; 
+	-ie-user-select: none; 
+	user-select: none;
+}
+
+td#opciones {
+	/*border-bottom:1px solid black;
+	border-top:1px solid black;*/
+}
+
+img.opciones {
+	width:20px;
+	display:none;
+}
+
+span#opciones:hover {
+	text-decoration:underline;
+}
+
+div#contenedor div#opcion0 {
+	background-color:#C0DEED;
+	display:block;
+}
+
+div#contenedor div#opcion1 { display:none; }
+div#contenedor div#opcion2 { display:none; }
+div#contenedor div#opcion3 { display:none; }
+div#contenedor div#opcion4 { display:none; }
+div#contenedor div#opcion5 { display:none; }
+div#contenedor div#opcion6 { display:none; }
+div#contenedor div#opcion7 { display:none; }
+
+
+</style>
+<script type='text/javascript' src='jquery.js'></script>
+<script language="javascript">
+ $(this.document).ready(function() {
+	 var num_categorias=7;
+	$(".opciones").click(function() {
+		var categoria_seleccionada = $(this).attr('id');
+		for(var a=0;a<=num_categorias;a++) {
+			$("table#opciones td#opcion"+a).css("border-top","");
+			$("table#opciones td#opcion"+a).css("border-bottom","");
+			$("table#opciones img#opcion"+a).css("display","none");
+			$("div#contenedor div#opcion"+a).css("display","none");
+		}
+		$("div#contenedor div#"+categoria_seleccionada).css("display","block")
+		$("table#opciones td#"+categoria_seleccionada).css("border-top","1px solid black");
+		$("table#opciones td#"+categoria_seleccionada).css("border-bottom","1px solid black");
+		$("table#opciones img#"+categoria_seleccionada).css("display","inline");
+		
+	});
+ });
+</script>
+</head>
+
+<body>
+<div id="contenedor">
+	<div id="imagen-principal"><span id="titulo"><br /><br />Twitter Fingerprinting Tool</span></div>
+    <div id="pos-imagen-principal">
+    	<table align="center" id="opciones" cellpadding="2" cellspacing="10">
+        	<tr>
+            	<td class="opciones" id="opcion1"><img src="twitter.gif" class="opciones" id="opcion1" /><span id="opciones">Biografía</span></td>
+                <td class="opciones" id="opcion2"><img src="twitter.gif" class="opciones" id="opcion2" /><span id="opciones">Tweets</span></td>
+                <td class="opciones" id="opcion3"><img src="twitter.gif" class="opciones" id="opcion3" /><span id="opciones">Followers</span></td>
+                <td class="opciones" id="opcion4"><img src="twitter.gif" class="opciones" id="opcion4" /><span id="opciones">Followings</span></td>
+                <td class="opciones" id="opcion5"><img src="twitter.gif" class="opciones" id="opcion5" /><span id="opciones">Favoritos</span></td>
+                <td class="opciones" id="opcion6"><img src="twitter.gif" class="opciones" id="opcion6" /><span id="opciones">Listas (sigue)</span></td>
+                <td class="opciones" id="opcion7"><img src="twitter.gif" class="opciones" id="opcion7" /><span id="opciones">Listas (le siguen)</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="opciones" id="opcion0"><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></div>
+    <div class="opciones" id="opcion1">Bio</div>
+    <div class="opciones" id="opcion2">Tweets</div>
+    <div class="opciones" id="opcion3">Followers</div>
+    <div class="opciones" id="opcion4">Followings</div>
+    <div class="opciones" id="opcion5">Favs</div>
+    <div class="opciones" id="opcion6">Listas (sigue)</div>
+    <div class="opciones" id="opcion7">Listas (le siguen)</div>
+</div>
+</body>
+</html>
